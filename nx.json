@@ -1,5 +1,4 @@
 {
-  "npmScope": "dollop",
   "affected": {
     "defaultBase": "main"
   },
@@ -7,31 +6,33 @@
     "defaultCollection": "@nrwl/workspace"
   },
   "implicitDependencies": {
+    ".eslintrc.json": "*",
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
-    },
-    ".eslintrc.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ]
-      }
     }
   },
+  "npmScope": "dollop",
   "targetDependencies": {
     "build": [
       {
-        "target": "build",
-        "projects": "dependencies"
+        "projects": "dependencies",
+        "target": "build"
       }
     ]
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "accessToken": "ZmQ2ZDFmMzUtYWQxZC00ZDAwLWI3OGMtYmUwNzBjNmQwNTMwfHJlYWQtd3JpdGU=",
+        "cacheableOperations": [
+          "build",
+          "e2e",
+          "lint",
+          "test"
+        ]
+      },
+      "runner": "@nrwl/nx-cloud"
+    }
   }
 }
