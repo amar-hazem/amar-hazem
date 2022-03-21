@@ -1,0 +1,52 @@
+{
+  "root": "apps/amar-hazem-service",
+  "sourceRoot": "apps/amar-hazem-service/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/amar-hazem-service",
+        "main": "apps/amar-hazem-service/src/main.ts",
+        "tsConfig": "apps/amar-hazem-service/tsconfig.app.json",
+        "assets": ["apps/amar-hazem-service/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/amar-hazem-service/src/environments/environment.ts",
+              "with": "apps/amar-hazem-service/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "amar-hazem-service:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/amar-hazem-service/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/amar-hazem-service"],
+      "options": {
+        "jestConfig": "apps/amar-hazem-service/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
