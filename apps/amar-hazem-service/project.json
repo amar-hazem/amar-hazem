@@ -1,30 +1,31 @@
 {
+  "projectType": "application",
   "root": "apps/amar-hazem-service",
   "sourceRoot": "apps/amar-hazem-service/src",
-  "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/amar-hazem-service",
-        "main": "apps/amar-hazem-service/src/main.ts",
-        "tsConfig": "apps/amar-hazem-service/tsconfig.app.json",
-        "assets": ["apps/amar-hazem-service/src/assets"]
-      },
       "configurations": {
         "production": {
-          "optimization": true,
           "extractLicenses": true,
-          "inspect": false,
           "fileReplacements": [
             {
               "replace": "apps/amar-hazem-service/src/environments/environment.ts",
               "with": "apps/amar-hazem-service/src/environments/environment.prod.ts"
             }
-          ]
+          ],
+          "inspect": false,
+          "optimization": true
         }
-      }
+      },
+      "executor": "@nrwl/node:webpack",
+      "options": {
+        "assets": ["apps/amar-hazem-service/src/assets"],
+        "main": "apps/amar-hazem-service/src/main.ts",
+        "outputPath": "dist/apps/amar-hazem-service",
+        "tsConfig": "apps/amar-hazem-service/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
     },
     "serve": {
       "executor": "@nrwl/node:node",
@@ -34,19 +35,18 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/amar-hazem-service/**/*.ts"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/amar-hazem-service"],
       "options": {
         "jestConfig": "apps/amar-hazem-service/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/apps/amar-hazem-service"]
     }
-  },
-  "tags": []
+  }
 }

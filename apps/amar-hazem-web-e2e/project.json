@@ -1,28 +1,28 @@
 {
+  "implicitDependencies": ["amar-hazem-web"],
+  "projectType": "application",
   "root": "apps/amar-hazem-web-e2e",
   "sourceRoot": "apps/amar-hazem-web-e2e/src",
-  "projectType": "application",
+  "tags": [],
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/amar-hazem-web-e2e/cypress.json",
-        "devServerTarget": "amar-hazem-web:serve:development"
-      },
       "configurations": {
         "production": {
           "devServerTarget": "amar-hazem-web:serve:production"
         }
+      },
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/amar-hazem-web-e2e/cypress.json",
+        "devServerTarget": "amar-hazem-web:serve:development"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["apps/amar-hazem-web-e2e/**/*.{js,ts}"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["amar-hazem-web"]
+  }
 }

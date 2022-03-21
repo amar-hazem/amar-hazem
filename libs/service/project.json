@@ -1,22 +1,22 @@
 {
   "root": "libs/service",
   "sourceRoot": "libs/service/src",
+  "tags": [],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/service/**/*.ts"]
-      }
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/service"],
       "options": {
         "jestConfig": "libs/service/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/libs/service"]
     }
-  },
-  "tags": []
+  }
 }

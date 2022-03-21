@@ -1,5 +1,6 @@
 *.launch
 *.sublime-workspace
+.angular
 .c9
 .classpath
 .DS_Store
@@ -24,5 +25,3 @@ Thumbs.db
 tmp
 typings
 yarn-error.log
-
-.angular

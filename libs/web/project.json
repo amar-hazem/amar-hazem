@@ -1,56 +1,56 @@
 {
+  "prefix": "dollop",
   "projectType": "library",
   "root": "libs/web",
   "sourceRoot": "libs/web/src",
-  "prefix": "dollop",
+  "tags": [],
   "targets": {
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/web"],
+    "build-storybook": {
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
+      "executor": "@nrwl/storybook:build",
       "options": {
-        "jestConfig": "libs/web/jest.config.js",
-        "passWithNoTests": true
-      }
+        "config": {
+          "configFolder": "libs/web/.storybook"
+        },
+        "outputPath": "dist/storybook/web",
+        "projectBuildConfig": "web:build-storybook",
+        "uiFramework": "@storybook/angular"
+      },
+      "outputs": ["{options.outputPath}"]
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/web/src/**/*.ts", "libs/web/src/**/*.html"]
+        "lintFilePatterns": ["libs/web/src/**/*.html", "libs/web/src/**/*.ts"]
       }
     },
     "storybook": {
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      },
       "executor": "@nrwl/storybook:storybook",
       "options": {
-        "uiFramework": "@storybook/angular",
-        "port": 4400,
         "config": {
           "configFolder": "libs/web/.storybook"
         },
-        "projectBuildConfig": "web:build-storybook"
-      },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
+        "port": 4400,
+        "projectBuildConfig": "web:build-storybook",
+        "uiFramework": "@storybook/angular"
       }
     },
-    "build-storybook": {
-      "executor": "@nrwl/storybook:build",
-      "outputs": ["{options.outputPath}"],
+    "test": {
+      "executor": "@nrwl/jest:jest",
       "options": {
-        "uiFramework": "@storybook/angular",
-        "outputPath": "dist/storybook/web",
-        "config": {
-          "configFolder": "libs/web/.storybook"
-        },
-        "projectBuildConfig": "web:build-storybook"
+        "jestConfig": "libs/web/jest.config.js",
+        "passWithNoTests": true
       },
-      "configurations": {
-        "ci": {
-          "quiet": true
-        }
-      }
+      "outputs": ["coverage/libs/web"]
     }
-  },
-  "tags": []
+  }
 }

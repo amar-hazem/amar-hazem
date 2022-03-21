@@ -1,38 +1,31 @@
 {
+  "prefix": "dollop",
   "projectType": "application",
   "root": "apps/amar-hazem-web",
   "sourceRoot": "apps/amar-hazem-web/src",
-  "prefix": "dollop",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/amar-hazem-web",
-        "index": "apps/amar-hazem-web/src/index.html",
-        "main": "apps/amar-hazem-web/src/main.ts",
-        "polyfills": "apps/amar-hazem-web/src/polyfills.ts",
-        "tsConfig": "apps/amar-hazem-web/tsconfig.app.json",
-        "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/amar-hazem-web/src/favicon.ico",
-          "apps/amar-hazem-web/src/assets"
-        ],
-        "styles": ["apps/amar-hazem-web/src/styles.scss"],
-        "scripts": []
-      },
       "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
         "production": {
           "budgets": [
             {
-              "type": "initial",
+              "maximumError": "1mb",
               "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "type": "initial"
             },
             {
-              "type": "anyComponentStyle",
+              "maximumError": "4kb",
               "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "type": "anyComponentStyle"
             }
           ],
           "fileReplacements": [
@@ -42,29 +35,25 @@
             }
           ],
           "outputHashing": "all"
-        },
-        "development": {
-          "buildOptimizer": false,
-          "optimization": false,
-          "vendorChunk": true,
-          "extractLicenses": false,
-          "sourceMap": true,
-          "namedChunks": true
         }
       },
-      "defaultConfiguration": "production"
-    },
-    "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
-      "configurations": {
-        "production": {
-          "browserTarget": "amar-hazem-web:build:production"
-        },
-        "development": {
-          "browserTarget": "amar-hazem-web:build:development"
-        }
+      "defaultConfiguration": "production",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/amar-hazem-web/src/assets",
+          "apps/amar-hazem-web/src/favicon.ico"
+        ],
+        "index": "apps/amar-hazem-web/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/amar-hazem-web/src/main.ts",
+        "outputPath": "dist/apps/amar-hazem-web",
+        "polyfills": "apps/amar-hazem-web/src/polyfills.ts",
+        "scripts": [],
+        "styles": ["apps/amar-hazem-web/src/styles.scss"],
+        "tsConfig": "apps/amar-hazem-web/tsconfig.app.json"
       },
-      "defaultConfiguration": "development"
+      "outputs": ["{options.outputPath}"]
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -76,19 +65,30 @@
       "executor": "@nrwl/linter:eslint",
       "options": {
         "lintFilePatterns": [
-          "apps/amar-hazem-web/src/**/*.ts",
-          "apps/amar-hazem-web/src/**/*.html"
+          "apps/amar-hazem-web/src/**/*.html",
+          "apps/amar-hazem-web/src/**/*.ts"
         ]
       }
     },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "amar-hazem-web:build:development"
+        },
+        "production": {
+          "browserTarget": "amar-hazem-web:build:production"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server"
+    },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/amar-hazem-web"],
       "options": {
         "jestConfig": "apps/amar-hazem-web/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/apps/amar-hazem-web"]
     }
-  },
-  "tags": []
+  }
 }

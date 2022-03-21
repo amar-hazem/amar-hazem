@@ -1,28 +1,28 @@
 {
-  "root": "apps/web-e2e",
-  "sourceRoot": "apps/web-e2e/src",
-  "projectType": "application",
+  "implicitDependencies": ["web"],
+  "projectType": "library",
+  "root": "libs/web-e2e",
+  "sourceRoot": "libs/web-e2e/src",
+  "tags": [],
   "targets": {
     "e2e": {
-      "executor": "@nrwl/cypress:cypress",
-      "options": {
-        "cypressConfig": "apps/web-e2e/cypress.json",
-        "devServerTarget": "web:storybook"
-      },
       "configurations": {
         "ci": {
           "devServerTarget": "web:storybook:ci"
         }
+      },
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "libs/web-e2e/cypress.json",
+        "devServerTarget": "web:storybook"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/web-e2e/**/*.{js,ts}"]
-      }
+        "lintFilePatterns": ["libs/web-e2e/**/*.{js,ts}"]
+      },
+      "outputs": ["{options.outputFile}"]
     }
-  },
-  "tags": [],
-  "implicitDependencies": ["web"]
+  }
 }
