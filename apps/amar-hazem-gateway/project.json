@@ -1,30 +1,38 @@
 {
+  "projectType": "application",
   "root": "apps/amar-hazem-gateway",
   "sourceRoot": "apps/amar-hazem-gateway/src",
-  "projectType": "application",
+  "tags": [],
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/apps/amar-hazem-gateway",
-        "main": "apps/amar-hazem-gateway/src/main.ts",
-        "tsConfig": "apps/amar-hazem-gateway/tsconfig.app.json",
-        "assets": ["apps/amar-hazem-gateway/src/assets"]
-      },
       "configurations": {
         "production": {
-          "optimization": true,
           "extractLicenses": true,
-          "inspect": false,
           "fileReplacements": [
             {
               "replace": "apps/amar-hazem-gateway/src/environments/environment.ts",
               "with": "apps/amar-hazem-gateway/src/environments/environment.prod.ts"
             }
-          ]
+          ],
+          "inspect": false,
+          "optimization": true
         }
-      }
+      },
+      "executor": "@nrwl/node:webpack",
+      "options": {
+        "assets": ["apps/amar-hazem-gateway/src/assets"],
+        "main": "apps/amar-hazem-gateway/src/main.ts",
+        "outputPath": "dist/apps/amar-hazem-gateway",
+        "tsConfig": "apps/amar-hazem-gateway/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/amar-hazem-gateway/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
     },
     "serve": {
       "executor": "@nrwl/node:node",
@@ -32,21 +40,13 @@
         "buildTarget": "amar-hazem-gateway:build"
       }
     },
-    "lint": {
-      "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/amar-hazem-gateway/**/*.ts"]
-      }
-    },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/amar-hazem-gateway"],
       "options": {
         "jestConfig": "apps/amar-hazem-gateway/jest.config.js",
         "passWithNoTests": true
-      }
+      },
+      "outputs": ["coverage/apps/amar-hazem-gateway"]
     }
-  },
-  "tags": []
+  }
 }

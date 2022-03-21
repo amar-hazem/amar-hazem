@@ -1,13 +1,13 @@
 {
+  "baseUrl": "http://localhost:4400",
+  "chromeWebSecurity": false,
   "fileServerFolder": ".",
   "fixturesFolder": "./src/fixtures",
   "integrationFolder": "./src/integration",
   "modifyObstructiveCode": false,
-  "supportFile": "./src/support/index.ts",
   "pluginsFile": false,
+  "screenshotsFolder": "../../dist/cypress/libs/web-e2e/screenshots",
+  "supportFile": "./src/support/index.ts",
   "video": true,
-  "videosFolder": "../../dist/cypress/apps/web-e2e/videos",
-  "screenshotsFolder": "../../dist/cypress/apps/web-e2e/screenshots",
-  "chromeWebSecurity": false,
-  "baseUrl": "http://localhost:4400"
+  "videosFolder": "../../dist/cypress/libs/web-e2e/videos"
 }

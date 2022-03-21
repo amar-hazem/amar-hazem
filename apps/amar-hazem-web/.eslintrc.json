@@ -3,33 +3,33 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": ["*.ts"],
       "extends": [
-        "plugin:@nrwl/nx/angular",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:@nrwl/nx/angular"
       ],
+      "files": ["*.ts"],
       "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "dollop",
-            "style": "camelCase"
-          }
-        ],
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": "element",
             "prefix": "dollop",
-            "style": "kebab-case"
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "dollop",
+            "style": "camelCase",
+            "type": "attribute"
           }
         ]
       }
     },
     {
-      "files": ["*.html"],
       "extends": ["plugin:@nrwl/nx/angular-template"],
+      "files": ["*.html"],
       "rules": {}
     }
   ]

@@ -5,6 +5,22 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
+  "defaultProject": "amar-hazem-web",
+  "generators": {
+    "@nrwl/angular:application": {
+      "e2eTestRunner": "cypress",
+      "linter": "eslint",
+      "style": "scss",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    }
+  },
   "implicitDependencies": {
     ".eslintrc.json": "*",
     "package.json": {
@@ -29,21 +45,5 @@
       },
       "runner": "@nrwl/nx-cloud"
     }
-  },
-  "generators": {
-    "@nrwl/angular:application": {
-      "style": "scss",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "scss"
-    }
-  },
-  "defaultProject": "amar-hazem-web"
+  }
 }
