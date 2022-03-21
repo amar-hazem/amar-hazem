@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
+      "@dollop/gateway": ["libs/gateway/src/index.ts"],
       "@dollop/web": ["libs/web/src/index.ts"]
     },
     "rootDir": ".",
