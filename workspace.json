@@ -10,7 +10,8 @@
     "amar-hazem-web-e2e": "apps/amar-hazem-web-e2e",
     "gateway": "libs/gateway",
     "service": "libs/service",
-    "web": "libs/web"
+    "web": "libs/web",
+    "web-e2e": "libs/web-e2e"
   },
   "version": 2
 }
