@@ -3,7 +3,7 @@
     "defaultBase": "main"
   },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   },
   "implicitDependencies": {
     ".eslintrc.json": "*",
@@ -25,14 +25,25 @@
     "default": {
       "options": {
         "accessToken": "ZmQ2ZDFmMzUtYWQxZC00ZDAwLWI3OGMtYmUwNzBjNmQwNTMwfHJlYWQtd3JpdGU=",
-        "cacheableOperations": [
-          "build",
-          "e2e",
-          "lint",
-          "test"
-        ]
+        "cacheableOperations": ["build", "e2e", "lint", "test"]
       },
       "runner": "@nrwl/nx-cloud"
     }
-  }
+  },
+  "generators": {
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss"
+    }
+  },
+  "defaultProject": "amar-hazem-web"
 }

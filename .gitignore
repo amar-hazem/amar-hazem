@@ -24,3 +24,5 @@ Thumbs.db
 tmp
 typings
 yarn-error.log
+
+.angular
