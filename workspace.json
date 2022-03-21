@@ -1,4 +1,7 @@
 {
-  "projects": {},
+  "projects": {
+    "amar-hazem-web": "apps/amar-hazem-web",
+    "amar-hazem-web-e2e": "apps/amar-hazem-web-e2e"
+  },
   "version": 2
 }

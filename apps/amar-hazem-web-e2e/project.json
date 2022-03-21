@@ -1,0 +1,28 @@
+{
+  "root": "apps/amar-hazem-web-e2e",
+  "sourceRoot": "apps/amar-hazem-web-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/amar-hazem-web-e2e/cypress.json",
+        "devServerTarget": "amar-hazem-web:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "amar-hazem-web:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/amar-hazem-web-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["amar-hazem-web"]
+}
