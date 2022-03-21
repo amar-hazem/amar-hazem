@@ -1,5 +1,7 @@
 {
   "projects": {
+    "accounts-web": "apps/accounts-web",
+    "accounts-web-e2e": "apps/accounts-web-e2e",
     "amar-hazem-gateway": "apps/amar-hazem-gateway",
     "amar-hazem-service": "apps/amar-hazem-service",
     "amar-hazem-web": "apps/amar-hazem-web",
