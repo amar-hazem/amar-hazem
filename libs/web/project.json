@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/web",
+  "sourceRoot": "libs/web/src",
+  "prefix": "dollop",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/web"],
+      "options": {
+        "jestConfig": "libs/web/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/web/src/**/*.ts", "libs/web/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
