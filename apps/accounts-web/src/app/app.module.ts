@@ -13,7 +13,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
   declarations: [AppComponent, NxWelcomeComponent],
   imports: [
     BrowserAnimationsModule,
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
