@@ -54,8 +54,10 @@
     "eslint": "8.11.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "2.12.1",
+    "husky": "7.0.4",
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.1",
+    "lint-staged": "12.3.7",
     "nx": "13.9.3",
     "prettier": "2.6.0",
     "stylelint": "14.6.0",
@@ -75,6 +77,11 @@
     "dollop"
   ],
   "license": "UNLICENSED",
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.{css,scss}": "stylelint --fix",
+    "*.{js,ts,css,scss,md}": "prettier --write"
+  },
   "name": "dollop",
   "private": true,
   "repository": {
@@ -84,6 +91,7 @@
   "scripts": {
     "build": "nx build",
     "postinstall": "ngcc --properties es2015 browser module main",
+    "prepare": "husky install",
     "start": "nx serve",
     "test": "nx test"
   },
