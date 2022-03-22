@@ -1,0 +1,17 @@
+{
+  "angularCompilerOptions": {
+    "entryModule": "./src/app/app.server.module#AppServerModule"
+  },
+  "compilerOptions": {
+    "outDir": "./out-tsc/server",
+    "target": "es2019",
+    "types": [
+      "node"
+    ]
+  },
+  "extends": "./tsconfig.app.json",
+  "files": [
+    "server.ts",
+    "src/main.server.ts"
+  ]
+}
