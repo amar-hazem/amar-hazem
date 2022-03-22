@@ -42,14 +42,17 @@
       "options": {
         "assets": [
           "apps/accounts-web/src/assets",
-          "apps/accounts-web/src/favicon.ico"
+          "apps/accounts-web/src/favicon.ico",
+          "apps/accounts-web/src/manifest.webmanifest"
         ],
         "index": "apps/accounts-web/src/index.html",
         "inlineStyleLanguage": "scss",
         "main": "apps/accounts-web/src/main.ts",
+        "ngswConfigPath": "ngsw-config.json",
         "outputPath": "dist/apps/accounts-web",
         "polyfills": "apps/accounts-web/src/polyfills.ts",
         "scripts": [],
+        "serviceWorker": true,
         "styles": [
           "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
           "apps/accounts-web/src/styles.scss"
