@@ -1,4 +1,8 @@
 {
+  "author": "Amar Hazem <amar.hazem@icloud.com> (https://github.com/amar-hazem/dollop)",
+  "bugs": {
+    "url": "https://github.com/amar-hazem/dollop/issues"
+  },
   "dependencies": {
     "@angular/animations": "13.3.0",
     "@angular/common": "13.3.0",
@@ -16,6 +20,7 @@
     "tslib": "2.3.1",
     "zone.js": "0.11.5"
   },
+  "description": "dollop",
   "devDependencies": {
     "@angular-devkit/build-angular": "13.3.0",
     "@angular-eslint/eslint-plugin": "13.1.0",
@@ -61,9 +66,21 @@
     "typescript": "4.5.5",
     "webpack": "5.70.0"
   },
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.1.2"
+  },
+  "homepage": "https://github.com/amar-hazem/dollop",
+  "keywords": [
+    "dollop"
+  ],
   "license": "UNLICENSED",
   "name": "dollop",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amar-hazem/dollop.git"
+  },
   "scripts": {
     "build": "nx build",
     "postinstall": "ngcc --properties es2015 browser module main",
