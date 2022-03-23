@@ -1,0 +1,1 @@
+web: node dist/apps/amar-hazem-gateway/main.js

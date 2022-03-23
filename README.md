@@ -38,8 +38,7 @@ for an account.
 
 #### Global packages
 
-Run `npm install -g @angular/cli @compodoc/compodoc @nestjs/cli @nrwl/cli
-npm-check npm-check-updates prettier yarn`.
+Run `npm install -g @angular/cli @compodoc/compodoc @nestjs/cli @nrwl/cli npm-check npm-check-updates prettier yarn`.
 
 ### Installing
 
@@ -48,18 +47,18 @@ npm-check npm-check-updates prettier yarn`.
    [dollop](https://github.com/amar-hazem/dollop).
 2. Install dependencies: `npm install`.
 3. Run the dollop utils command, and the start command for the applications you
-are working on.
+   are working on.
 
 ## Joining the Slack
 
-Join the [slack chat](https://dollop-hq.slack.com).
+Join the [Slack chat](https://dollop-hq.slack.com).
 
 ## Built With
 
 - [Angular](https://angular.io) - Front-end framework
 - [Angular Material](https://material.angular.io) - Components for Angular
 - [Docker](https://www.docker.com) - The running environment
-- [Github](https://github.com) - The repository tool
+- [GitHub](https://github.com) - The repository tool
 - [Mongo](https://www.mongodb.com) - The database
 - [Nest](https://nestjs.com) - Back-end framework
 - [Node](https://nodejs.org) - The javascript server platform
@@ -72,8 +71,7 @@ Join the [slack chat](https://dollop-hq.slack.com).
 
 - Generate an application `nx g @nrwl/<angular|nest>:app <app-name>`
 - Generate a library `nx g @nrwl/<angular|nest>:lib <lib-name>`
-- Generate a component `nx g @nrwl/<angular|nest>:component <component-name>
---project=<project-name>`
+- Generate a component `nx g @nrwl/<angular|nest>:component <component-name> --project=<project-name>`
 
 ## Contributing process
 

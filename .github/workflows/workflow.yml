@@ -1,0 +1,46 @@
+name: Workflow
+on:
+  push:
+  release:
+    types:
+      - 'created'
+jobs:
+  workflow:
+    name: Workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy project directory
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - name: Node environment setup
+        uses: actions/setup-node@v2
+        with:
+          cache: npm
+          node-version: 16.13.1
+      - env:
+          cache-name:
+            cache-node-modules
+        name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.npm
+          restore-keys: ${{ runner.os }}-build-${{ env.cache-name }}-
+      - name: Install dependencies
+        run: npm install
+      - name: Execute unit tests
+        run: npx nx affected --target=test --parallel=2
+      - name: Execute e2e tests
+        run: npx nx affected --target=e2e --parallel=1
+      - env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        name: Deploy to Heroku
+        run: |
+          if [ ${{ github.event_name }} = "release" ]; then
+            npx nx affected --target=deploy:production --parallel=1
+          elif [ ${{ github.event_name }} = "push" -a ${{ github.event.ref }} = "refs/head/main" ]; then
+            npx nx affected --target=deploy:staging --parallel=1
+          fi;

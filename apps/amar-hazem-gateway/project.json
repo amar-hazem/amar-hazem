@@ -11,7 +11,18 @@
           "fileReplacements": [
             {
               "replace": "apps/amar-hazem-gateway/src/environments/environment.ts",
-              "with": "apps/amar-hazem-gateway/src/environments/environment.prod.ts"
+              "with": "apps/amar-hazem-gateway/src/environments/environment.production.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        },
+        "staging": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/amar-hazem-gateway/src/environments/environment.ts",
+              "with": "apps/amar-hazem-gateway/src/environments/environment.staging.ts"
             }
           ],
           "inspect": false,
@@ -26,6 +37,18 @@
         "tsConfig": "apps/amar-hazem-gateway/tsconfig.app.json"
       },
       "outputs": ["{options.outputPath}"]
+    },
+    "deploy:production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a amar-hazem-gateway-production; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a amar-hazem-gateway-staging; git push heroku main --force"
+      }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",

@@ -31,7 +31,28 @@
           "fileReplacements": [
             {
               "replace": "apps/accounts-web/src/environments/environment.ts",
-              "with": "apps/accounts-web/src/environments/environment.prod.ts"
+              "with": "apps/accounts-web/src/environments/environment.production.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "staging": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/accounts-web/src/environments/environment.ts",
+              "with": "apps/accounts-web/src/environments/environment.staging.ts"
             }
           ],
           "outputHashing": "all"
@@ -48,7 +69,7 @@
         "index": "apps/accounts-web/src/index.html",
         "inlineStyleLanguage": "scss",
         "main": "apps/accounts-web/src/main.ts",
-        "ngswConfigPath": "ngsw-config.json",
+        "ngswConfigPath": "apps/accounts-web/ngsw-config.json",
         "outputPath": "dist/apps/accounts-web",
         "polyfills": "apps/accounts-web/src/polyfills.ts",
         "scripts": [],
@@ -60,6 +81,18 @@
         "tsConfig": "apps/accounts-web/tsconfig.app.json"
       },
       "outputs": ["{options.outputPath}"]
+    },
+    "deploy:production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a accounts-web-production; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a accounts-web-staging; git push heroku main --force"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -83,6 +116,9 @@
         },
         "production": {
           "browserTarget": "accounts-web:build:production"
+        },
+        "staging": {
+          "browserTarget": "accounts-web:build:staging"
         }
       },
       "defaultConfiguration": "development",
