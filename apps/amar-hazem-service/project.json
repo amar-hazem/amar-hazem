@@ -11,7 +11,18 @@
           "fileReplacements": [
             {
               "replace": "apps/amar-hazem-service/src/environments/environment.ts",
-              "with": "apps/amar-hazem-service/src/environments/environment.prod.ts"
+              "with": "apps/amar-hazem-service/src/environments/environment.production.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        },
+        "staging": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/amar-hazem-service/src/environments/environment.ts",
+              "with": "apps/amar-hazem-service/src/environments/environment.staging.ts"
             }
           ],
           "inspect": false,
@@ -26,6 +37,18 @@
         "tsConfig": "apps/amar-hazem-service/tsconfig.app.json"
       },
       "outputs": ["{options.outputPath}"]
+    },
+    "deploy:production": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a amar-hazem-service-production; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a amar-hazem-service-staging; git push heroku main --force"
+      }
     },
     "serve": {
       "executor": "@nrwl/node:node",

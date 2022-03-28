@@ -1,4 +1,123 @@
 services:
+  accounts-gateway:
+    command: npm start accounts-gateway
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${ACCOUNTS_GATEWAY_PORT}
+      context: .
+    container_name: accounts-gateway
+    image: node
+    ports:
+      - ${ACCOUNTS_GATEWAY_PORT}:${ACCOUNTS_GATEWAY_PORT}
+    volumes:
+      - ./apps/accounts-gateway:/usr/src/app/apps/accounts-gateway
+      - /usr/src/app/node_modules
+  accounts-service:
+    command: npm start accounts-service
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${ACCOUNTS_SERVICE_PORT}
+      context: .
+    container_name: accounts-service
+    image: node
+    ports:
+      - ${ACCOUNTS_SERVICE_PORT}:${ACCOUNTS_SERVICE_PORT}
+    volumes:
+      - ./apps/accounts-service:/usr/src/app/apps/accounts-service
+      - /usr/src/app/node_modules
+  accounts-web:
+    command: npm start accounts-web
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${ACCOUNTS_WEB_PORT}
+      context: .
+    container_name: accounts-web
+    image: node
+    ports:
+      - ${ACCOUNTS_WEB_PORT}:${ACCOUNTS_WEB_PORT}
+    volumes:
+      - ./apps/accounts-web:/usr/src/app/apps/accounts-web
+      - /usr/src/app/node_modules
+  amar-hazem-gateway:
+    command: npm start amar-hazem-gateway
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${AMAR_HAZEM_GATEWAY_PORT}
+      context: .
+    container_name: amar-hazem-gateway
+    image: node
+    ports:
+      - ${AMAR_HAZEM_GATEWAY_PORT}:${AMAR_HAZEM_GATEWAY_PORT}
+    volumes:
+      - ./apps/amar-hazem-gateway:/usr/src/app/apps/amar-hazem-gateway
+      - /usr/src/app/node_modules
+  amar-hazem-service:
+    command: npm start amar-hazem-service
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${AMAR_HAZEM_SERVICE_PORT}
+      context: .
+    container_name: amar-hazem-service
+    image: node
+    ports:
+      - ${AMAR_HAZEM_SERVICE_PORT}:${AMAR_HAZEM_SERVICE_PORT}
+    volumes:
+      - ./apps/amar-hazem-service:/usr/src/app/apps/amar-hazem-service
+      - /usr/src/app/node_modules
+  amar-hazem-web:
+    command: npm start amar-hazem-web
+    build:
+      args:
+        - NODE_VERSION=${NODE_VERSION}
+        - PORT=${AMAR_HAZEM_WEB_PORT}
+      context: .
+    container_name: amar-hazem-web
+    image: node
+    ports:
+      - ${AMAR_HAZEM_WEB_PORT}:${AMAR_HAZEM_WEB_PORT}
+    volumes:
+      - ./apps/amar-hazem-web:/usr/src/app/apps/amar-hazem-web
+      - /usr/src/app/node_modules
+  elasticsearch:
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+    image: elasticsearch:${ELK_VERSION}
+    ports:
+      - ${ELASTICSEARCH_PORT_HTTP}:${ELASTICSEARCH_PORT_HTTP}
+      - ${ELASTICSEARCH_PORT_TCP}:${ELASTICSEARCH_PORT_TCP}
+    volumes:
+      - elasticsearch:/usr/share/elasticsearch/data
+      - ./config/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+  kibana:
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_HOSTS=http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT_HTTP}
+    image: kibana:${ELK_VERSION}
+    ports:
+      - ${KIBANA_PORT}:${KIBANA_PORT}
+  logstash:
+    container_name: logstash
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_HOSTS=http://${ELASTICSEARCH_HOST}:${ELASTICSEARCH_PORT_HTTP}
+    image: logstash:${ELK_VERSION}
+    ports:
+      - ${LOGSTASH_PORT_BEATS}:${LOGSTASH_PORT_BEATS}
+      - ${LOGSTASH_PORT_TCP}:${LOGSTASH_PORT_TCP}
+      - ${LOGSTASH_PORT_MONITORING}:${LOGSTASH_PORT_MONITORING}
+    volumes:
+      - ./config/logstash/config/log4j2.properties:/usr/share/logstash/config/log4j2.properties
+      - ./config/logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./config/logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
   mongo:
     container_name: mongo
     image: mongo:${MONGO_VERSION}
@@ -16,5 +135,6 @@ services:
       - redis:/data
 version: '3.9'
 volumes:
+  elasticsearch:
   mongo:
   redis:
