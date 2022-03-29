@@ -1,0 +1,98 @@
+<mat-sidenav-container [hasBackdrop]="false" id="top">
+  <mat-sidenav-content>
+    <header>
+      <mat-toolbar color="primary">
+        <a mat-button routerLink="">
+          <h1>
+            <span *ngIf="isHandset$ | async">AH</span>
+            <span *ngIf="(isHandset$ | async) === false">Amar Hazem</span>
+          </h1>
+        </a>
+        <nav aria-label="Navigation Menu" *ngIf="(isHandset$ | async) === false">
+          <button mat-button (click)="scrollTo('home')">Home</button>
+          <button mat-button (click)="scrollTo('about')">About</button>
+          <button mat-button (click)="scrollTo('projects')">Projects</button>
+          <button mat-button (click)="scrollTo('testimonials')">Testimonials</button>
+          <button mat-button (click)="scrollTo('contact')">Contact</button>
+        </nav>
+        <div *ngIf="(isHandset$ | async) === false">
+          <a aria-label="Resume" download="amar_hazem.pdf" href="assets/pdf/resume.pdf" id="resume" mat-flat-button>
+            Resume
+          </a>
+        </div>
+        <div></div>
+        <button (click)="sidenav.toggle()" mat-button *ngIf="isHandset$ | async">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+      <mat-toolbar>
+        <a mat-button routerLink="">
+          <h4>
+            ©
+            <span *ngIf="isHandset$ | async">AH</span>
+            <span *ngIf="(isHandset$ | async) === false">Amar Hazem</span>
+          </h4>
+        </a>
+        <div></div>
+        <nav aria-label="Socials Menu">
+          <a
+            aria-label="LinkedIn"
+            color="primary"
+            href="https://www.linkedin.com/in/amar-hazem"
+            mat-icon-button
+            rel="noopener"
+            target="_blank"
+          >
+            <mat-icon svgIcon="linkedin"></mat-icon>
+          </a>
+          <a
+            aria-label="GitHub"
+            color="primary"
+            href="https://github.com/amar-hazem"
+            mat-icon-button
+            rel="noopener"
+            target="_blank"
+          >
+            <mat-icon svgIcon="github"></mat-icon>
+          </a>
+          <a aria-label="Email" href="mailto:amar.hazem@icloud.com" mat-icon-button>
+            <mat-icon>mail</mat-icon>
+          </a>
+          <a aria-label="Resume" download="resume_amar_hazem.pdf" href="assets/pdf/resume.pdf" mat-icon-button>
+            <mat-icon>contact_page</mat-icon>
+          </a>
+        </nav>
+        <button mat-button (click)="scrollTo('top')">
+          <mat-icon>arrow_upward</mat-icon>
+        </button>
+      </mat-toolbar>
+    </footer>
+  </mat-sidenav-content>
+  <mat-sidenav
+    [autoFocus]="false"
+    fixedInViewport
+    [fixedTopGap]="(isHandset$ | async) ? 56 : 64"
+    mode="over"
+    position="end"
+    #sidenav
+  >
+    <mat-toolbar color="primary">
+      <h2>Navigation</h2>
+    </mat-toolbar>
+    <nav aria-label="Navigation Menu">
+      <mat-list>
+        <mat-list-item (click)="scrollTo('top'); sidenav.close()">Home</mat-list-item>
+        <mat-list-item (click)="scrollTo('about'); sidenav.close()">About</mat-list-item>
+        <mat-list-item (click)="scrollTo('projects'); sidenav.close()">Projects</mat-list-item>
+        <mat-list-item (click)="scrollTo('testimonials'); sidenav.close()">Testimonials</mat-list-item>
+        <mat-list-item (click)="scrollTo('contact'); sidenav.close()">Contact</mat-list-item>
+      </mat-list>
+    </nav>
+    <a aria-label="Resume" download="resume_amar_hazem.pdf" href="assets/pdf/resume.pdf" mat-stroked-button>Resume</a>
+  </mat-sidenav>
+</mat-sidenav-container>

@@ -1,0 +1,30 @@
+section {
+  background-color: #263238;
+  color: white;
+  padding: 15px;
+
+  a {
+    text-decoration: none;
+
+    mat-card {
+      mat-card-title {
+        align-items: center;
+        display: flex;
+
+        div {
+          flex-grow: 1;
+        }
+
+        a {
+          img {
+            filter: invert(100%);
+          }
+        }
+      }
+
+      mat-card-content {
+        text-align: justify;
+      }
+    }
+  }
+}
