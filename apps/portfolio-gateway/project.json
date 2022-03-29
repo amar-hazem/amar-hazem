@@ -1,0 +1,75 @@
+{
+  "projectType": "application",
+  "root": "apps/portfolio-gateway",
+  "sourceRoot": "apps/portfolio-gateway/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "prod": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-gateway/src/environments/environment.ts",
+              "with": "apps/portfolio-gateway/src/environments/environment.prod.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        },
+        "staging": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-gateway/src/environments/environment.ts",
+              "with": "apps/portfolio-gateway/src/environments/environment.staging.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        }
+      },
+      "executor": "@nrwl/node:webpack",
+      "options": {
+        "assets": ["apps/portfolio-gateway/src/assets"],
+        "main": "apps/portfolio-gateway/src/main.ts",
+        "outputPath": "dist/apps/portfolio-gateway",
+        "tsConfig": "apps/portfolio-gateway/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "deploy:prod": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-gateway-prod; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-gateway-staging; git push heroku main --force"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/portfolio-gateway/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "portfolio-gateway:build"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/portfolio-gateway/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/apps/portfolio-gateway"]
+    }
+  }
+}

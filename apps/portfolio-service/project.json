@@ -1,0 +1,75 @@
+{
+  "projectType": "application",
+  "root": "apps/portfolio-service",
+  "sourceRoot": "apps/portfolio-service/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "prod": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-service/src/environments/environment.ts",
+              "with": "apps/portfolio-service/src/environments/environment.prod.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        },
+        "staging": {
+          "extractLicenses": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-service/src/environments/environment.ts",
+              "with": "apps/portfolio-service/src/environments/environment.staging.ts"
+            }
+          ],
+          "inspect": false,
+          "optimization": true
+        }
+      },
+      "executor": "@nrwl/node:webpack",
+      "options": {
+        "assets": ["apps/portfolio-service/src/assets"],
+        "main": "apps/portfolio-service/src/main.ts",
+        "outputPath": "dist/apps/portfolio-service",
+        "tsConfig": "apps/portfolio-service/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "deploy:prod": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-service-prod; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-service-staging; git push heroku main --force"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/node:node",
+      "options": {
+        "buildTarget": "portfolio-service:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/portfolio-service/**/*.ts"]
+      },
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/portfolio-service/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/apps/portfolio-service"]
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
-  "author": "Amar Hazem <amar.hazem@icloud.com> (https://github.com/amar-hazem/dollop)",
+  "author": "Amar Hazem <amar.hazem@icloud.com> (https://github.com/amar-hazem/amar-hazem)",
   "bugs": {
-    "url": "https://github.com/amar-hazem/dollop/issues"
+    "url": "https://github.com/amar-hazem/amar-hazem/issues"
   },
   "dependencies": {
     "@angular/animations": "13.3.0",
@@ -26,7 +26,7 @@
     "tslib": "2.3.1",
     "zone.js": "0.11.5"
   },
-  "description": "dollop",
+  "description": "amar-hazem",
   "devDependencies": {
     "@angular-devkit/build-angular": "13.3.0",
     "@angular-eslint/eslint-plugin": "13.1.0",
@@ -81,9 +81,9 @@
     "node": "16.13.1",
     "npm": "8.1.2"
   },
-  "homepage": "https://github.com/amar-hazem/dollop",
+  "homepage": "https://github.com/amar-hazem/amar-hazem",
   "keywords": [
-    "dollop"
+    "amar-hazem"
   ],
   "license": "UNLICENSED",
   "lint-staged": {
@@ -91,11 +91,11 @@
     "*.{css,scss}": "stylelint --fix",
     "*.{js,ts,css,scss,md}": "prettier --write"
   },
-  "name": "dollop",
+  "name": "amar-hazem",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/amar-hazem/dollop.git"
+    "url": "https://github.com/amar-hazem/amar-hazem.git"
   },
   "scripts": {
     "affected": "nx affected",
@@ -108,12 +108,12 @@
     "affected:test": "nx affected:test",
     "build": "nx build",
     "build:analyze": "nx build --source-map",
-    "build:ssr": "ng build && ng run amar-hazem-web:server",
+    "build:ssr": "ng build && ng run portfolio-web:server",
     "compodoc": "npx compodoc --hideGenerator -p tsconfig.doc.json",
     "compodoc:serve": "npx compodoc --hideGenerator -p tsconfig.doc.json -sw",
     "dep-graph": "nx dep-graph",
-    "dev:ssr": "ng run amar-hazem-web:serve-ssr",
-    "e2e": "nx run amar-hazem-web-e2e:e2e",
+    "dev:ssr": "ng run portfolio-web:serve-ssr",
+    "e2e": "nx run portfolio-web-e2e:e2e",
     "eslint": "nx lint",
     "format": "nx format:write",
     "format:check": "nx format:check",
@@ -125,10 +125,10 @@
     "nx": "nx",
     "postinstall": "ngcc --properties es2015 browser module main",
     "prepare": "husky install",
-    "prerender": "ng run amar-hazem-web:prerender",
+    "prerender": "ng run portfolio-web:prerender",
     "prettier": "prettier --write .",
-    "serve": "http-server ./dist/apps/amar-hazem-web -b -g -c31536000",
-    "serve:ssr": "node dist/apps/amar-hazem-web/main.311536c56152796f.js",
+    "serve": "http-server ./dist/apps/portfolio-web -b -g -c31536000",
+    "serve:ssr": "node dist/apps/portfolio-web/main.311536c56152796f.js",
     "start": "nx serve --host 0.0.0.0",
     "storybook": "nx run ui:storybook",
     "stylelint": "stylelint \"**/*.scss\"",

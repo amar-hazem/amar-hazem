@@ -1,6 +1,0 @@
-{
-  "root": "dist/apps/amar-hazem-web/",
-  "routes": {
-    "/**/*.html": "index.html"
-  }
-}

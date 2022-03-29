@@ -10,9 +10,9 @@
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@dollop/gateway": ["libs/gateway/src/index.ts"],
-      "@dollop/service": ["libs/service/src/index.ts"],
-      "@dollop/web": ["libs/web/src/index.ts"]
+      "@portfolio/gateway": ["libs/gateway/src/index.ts"],
+      "@portfolio/service": ["libs/service/src/index.ts"],
+      "@portfolio/web": ["libs/web/src/index.ts"]
     },
     "rootDir": ".",
     "skipDefaultLibCheck": true,
