@@ -1,0 +1,28 @@
+{
+  "implicitDependencies": ["portfolio-web"],
+  "projectType": "application",
+  "root": "apps/portfolio-web-e2e",
+  "sourceRoot": "apps/portfolio-web-e2e/src",
+  "tags": [],
+  "targets": {
+    "e2e": {
+      "configurations": {
+        "production": {
+          "devServerTarget": "portfolio-web:serve:production"
+        }
+      },
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/portfolio-web-e2e/cypress.json",
+        "devServerTarget": "portfolio-web:serve:development"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/portfolio-web-e2e/**/*.{js,ts}"]
+      },
+      "outputs": ["{options.outputFile}"]
+    }
+  }
+}

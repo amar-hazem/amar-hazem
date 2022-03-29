@@ -33,14 +33,14 @@ jobs:
         run: npm install
       - name: Execute unit tests
         run: npx nx affected --target=test --parallel=2
-      - name: Execute e2e tests
-        run: npx nx affected --target=e2e --parallel=1
+#      - name: Execute e2e tests
+#        run: npx nx affected --target=e2e --parallel=1
       - env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         name: Deploy to Heroku
         run: |
           if [ ${{ github.event_name }} = "release" ]; then
-            npx nx affected --target=deploy:production --parallel=1
+            npx nx affected --target=deploy:prod --parallel=1
           elif [ ${{ github.event_name }} = "push" -a ${{ github.event.ref }} = "refs/heads/main" ]; then
             npx nx affected --target=deploy:staging --parallel=1
           fi;

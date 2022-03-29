@@ -6,12 +6,12 @@
   "targets": {
     "build": {
       "configurations": {
-        "production": {
+        "prod": {
           "extractLicenses": true,
           "fileReplacements": [
             {
               "replace": "apps/accounts-service/src/environments/environment.ts",
-              "with": "apps/accounts-service/src/environments/environment.production.ts"
+              "with": "apps/accounts-service/src/environments/environment.prod.ts"
             }
           ],
           "inspect": false,
@@ -38,16 +38,16 @@
       },
       "outputs": ["{options.outputPath}"]
     },
-    "deploy:production": {
+    "deploy:prod": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "heroku git:remote -a accounts-service-production; git push heroku main --force"
+        "command": "heroku git:remote -a ah-accounts-service-prod; git push heroku main --force"
       }
     },
     "deploy:staging": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
-        "command": "heroku git:remote -a accounts-service-staging; git push heroku main --force"
+        "command": "heroku git:remote -a ah-accounts-service-staging; git push heroku main --force"
       }
     },
     "lint": {

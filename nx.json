@@ -5,7 +5,7 @@
   "cli": {
     "defaultCollection": "@nrwl/angular"
   },
-  "defaultProject": "amar-hazem-web",
+  "defaultProject": "portfolio-web",
   "generators": {
     "@nrwl/angular:application": {
       "e2eTestRunner": "cypress",
@@ -28,7 +28,7 @@
       "devDependencies": "*"
     }
   },
-  "npmScope": "dollop",
+  "npmScope": "amar-hazem",
   "targetDependencies": {
     "build": [
       {

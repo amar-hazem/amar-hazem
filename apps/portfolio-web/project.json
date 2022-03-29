@@ -1,0 +1,139 @@
+{
+  "prefix": "aha",
+  "projectType": "application",
+  "root": "apps/portfolio-web",
+  "sourceRoot": "apps/portfolio-web/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "configurations": {
+        "development": {
+          "buildOptimizer": false,
+          "extractLicenses": false,
+          "namedChunks": true,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "prod": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-web/src/environments/environment.ts",
+              "with": "apps/portfolio-web/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "staging": {
+          "budgets": [
+            {
+              "maximumError": "1mb",
+              "maximumWarning": "500kb",
+              "type": "initial"
+            },
+            {
+              "maximumError": "4kb",
+              "maximumWarning": "2kb",
+              "type": "anyComponentStyle"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/portfolio-web/src/environments/environment.ts",
+              "with": "apps/portfolio-web/src/environments/environment.staging.ts"
+            }
+          ],
+          "outputHashing": "all"
+        }
+      },
+      "defaultConfiguration": "prod",
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "assets": [
+          "apps/portfolio-web/src/apple-touch-icon.png",
+          "apps/portfolio-web/src/assets",
+          "apps/portfolio-web/src/favicon.ico",
+          "apps/portfolio-web/src/manifest.webmanifest"
+        ],
+        "index": "apps/portfolio-web/src/index.html",
+        "inlineStyleLanguage": "scss",
+        "main": "apps/portfolio-web/src/main.ts",
+        "ngswConfigPath": "apps/portfolio-web/ngsw-config.json",
+        "outputPath": "dist/apps/portfolio-web",
+        "polyfills": "apps/portfolio-web/src/polyfills.ts",
+        "scripts": [],
+        "serviceWorker": true,
+        "styles": [
+          "apps/portfolio-web/src/styles.scss"
+        ],
+        "tsConfig": "apps/portfolio-web/tsconfig.app.json"
+      },
+      "outputs": ["{options.outputPath}"]
+    },
+    "deploy:prod": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-web-prod; git push heroku main --force"
+      }
+    },
+    "deploy:staging": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "heroku git:remote -a ah-portfolio-web-staging; git push heroku main --force"
+      }
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "portfolio-web:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/portfolio-web/src/**/*.html",
+          "apps/portfolio-web/src/**/*.ts"
+        ]
+      }
+    },
+    "serve": {
+      "configurations": {
+        "development": {
+          "browserTarget": "portfolio-web:build:development"
+        },
+        "prod": {
+          "browserTarget": "portfolio-web:build:prod"
+        },
+        "staging": {
+          "browserTarget": "portfolio-web:build:staging"
+        }
+      },
+      "defaultConfiguration": "development",
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "port": 4201
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "options": {
+        "jestConfig": "apps/portfolio-web/jest.config.js",
+        "passWithNoTests": true
+      },
+      "outputs": ["coverage/apps/portfolio-web"]
+    }
+  }
+}

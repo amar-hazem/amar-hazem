@@ -12,7 +12,7 @@
         "@angular-eslint/component-selector": [
           "error",
           {
-            "prefix": "dollop",
+            "prefix": "web",
             "style": "kebab-case",
             "type": "element"
           }
@@ -20,7 +20,7 @@
         "@angular-eslint/directive-selector": [
           "error",
           {
-            "prefix": "dollop",
+            "prefix": "web",
             "style": "camelCase",
             "type": "attribute"
           }

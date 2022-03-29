@@ -1,5 +1,5 @@
 {
-  "prefix": "dollop",
+  "prefix": "web",
   "projectType": "library",
   "root": "libs/web",
   "sourceRoot": "libs/web/src",

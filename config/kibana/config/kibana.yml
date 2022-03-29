@@ -9,5 +9,5 @@ monitoring.ui.container.elasticsearch.enabled: true
 
 ## X-Pack security credentials
 #
-# elasticsearch.username: dollop
+# elasticsearch.username: amar-hazem
 # elasticsearch.password: M337-M477-S7r1k3r

@@ -1,6 +1,6 @@
-# dollop
+# amar-hazem
 
-Welcome to dollop. Dollop is a system of multiple applications inspired by the
+Welcome to amar-hazem. amar-hazem is a system of multiple applications inspired by the
 Google Suite. It's built with NX to manage the monorepo, Angular for the
 frontend and Nest for the backend.
 
@@ -12,7 +12,7 @@ on how to deploy the project on a live system.
 
 ### Prerequisites
 
-You will need a few tools to be able to start coding on dollop.
+You will need a few tools to be able to start coding on amar-hazem.
 
 #### nvm and node
 
@@ -42,16 +42,16 @@ Run `npm install -g @angular/cli @compodoc/compodoc @nestjs/cli @nrwl/cli npm-ch
 
 ### Installing
 
-1. Pull [dollop](https://gitlab.com/amar-hazem/dollop.git) from its repository.
+1. Pull [amar-hazem](https://gitlab.com/amar-hazem/amar-hazem.git) from its repository.
    You need to create a GitHub account and ask to join the project
-   [dollop](https://github.com/amar-hazem/dollop).
+   [amar-hazem](https://github.com/amar-hazem/amar-hazem).
 2. Install dependencies: `npm install`.
-3. Run the dollop utils command, and the start command for the applications you
+3. Run the amar-hazem command, and the start command for the applications you
    are working on.
 
 ## Joining the Slack
 
-Join the [Slack chat](https://dollop-hq.slack.com).
+Join the [Slack chat](https://amar-hazem.slack.com).
 
 ## Built With
 

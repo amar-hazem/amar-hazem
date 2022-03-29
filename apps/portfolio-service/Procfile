@@ -1,0 +1,1 @@
+web: node dist/apps/portfolio-service/main.js
