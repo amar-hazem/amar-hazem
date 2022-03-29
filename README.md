@@ -1,107 +1,38 @@
-# dollop
+<h2> Hey there! I'm Amar. <img src="https://github.com/souvikguria98/souvikguria98/blob/master/Hi.gif" width="25"></h2>
+<img align="right" alt="GIF" src="https://raw.githubusercontent.com/devSouvik/devSouvik/master/gif3.gif" width="500"/>
 
-Welcome to dollop. Dollop is a system of multiple applications inspired by the
-Google Suite. It's built with NX to manage the monorepo, Angular for the
-frontend and Nest for the backend.
+<h3> 👨🏻‍💻 About Me </h3>
 
-## Getting Started
+- 🔭 &nbsp; I’m currently working on my dollop application.
+- 🤔 &nbsp; Exploring new technologies and developing software solutions and quick hacks.
+- 🎓 &nbsp; Studying Computer Science, and computer programming.
+- 💼 &nbsp; Front-end web developer.
+- 🌱 &nbsp; Enthusiast in cyber Security and Artificial Intelligence .
+- ✍️ &nbsp; Watching Anime and trying out latest design trends as hobbies/side hustles.
+- ☕ &nbsp; I believe, a perfect cup of coffee can be the ultimate solution for any stress.
 
-These instructions will get you a copy of the project up and running on your
-local machine for development and testing purposes. See deployment for notes
-on how to deploy the project on a live system.
+<h3>🛠 Tech Stack</h3>
 
-### Prerequisites
+- 💻 &nbsp; TypeScript | Angular | NestJS
+- 🌐 &nbsp; HTML | CSS | JavaScript | Bootstrap
+- 🛢 &nbsp; MySQL | Firebase
+- 🔧 &nbsp; Visual Studio code | Git
 
-You will need a few tools to be able to start coding on dollop.
+<br>
 
-#### nvm and node
+<img align="center" src="https://github-readme-stats.vercel.app/api?username=amar-hazem&include_all_commits=true&count_private=true&show_icons=true&line_height=20&title_color=7A7ADB&icon_color=2234AE&text_color=D3D3D3&bg_color=0,000000,130F40" alt="devSouvik's Github Stats">
 
-Install node and npm through nvm.
+</br>
 
-#### webStorm
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=amar-hazem&layout=compact&text_color=daf7dc&bg_color=151515)](https://github.com/amar-hazem/github-readme-stats)
 
-Download [Toolbox](https://www.jetbrains.com/toolbox/app/?fromMenu) and install
-it. You will need to create an account
-[here](https://account.jetbrains.com/login) and login to Toolbox.
+<h3> 🤝🏻 Connect with Me </h3>
 
-#### Docker
+<p align="center">
+&nbsp; <a href="https://twitter.com/wuanshu" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/plasticine/100/000000/twitter.png" width="50" /></a>  
+&nbsp; <a href="https://www.instagram.com/wuanshu/" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/plasticine/100/000000/instagram-new.png" width="50" /></a>  
+&nbsp; <a href="https://www.linkedin.com/in/amar-hazem/" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/plasticine/100/000000/linkedin.png" width="50" /></a>
+&nbsp; <a href="mailto:amar.hazem@icloud.com" target="_blank" rel="noopener noreferrer"><img src="https://img.icons8.com/plasticine/100/000000/gmail.png"  width="50" /></a>
+</p>
 
-Download
-[Docker](https://hub.docker.com/editions/community/docker-ce-desktop-windows),
-and install it. You will need to create an account
-[here](https://hub.docker.com/signup) and login to your Docker app.
-
-#### Git
-
-Download [Git](https://gitforwindows.org/) and install it. That's it, no need
-for an account.
-
-#### Global packages
-
-Run `npm install -g @angular/cli @compodoc/compodoc @nestjs/cli @nrwl/cli npm-check npm-check-updates prettier yarn`.
-
-### Installing
-
-1. Pull [dollop](https://gitlab.com/amar-hazem/dollop.git) from its repository.
-   You need to create a GitHub account and ask to join the project
-   [dollop](https://github.com/amar-hazem/dollop).
-2. Install dependencies: `npm install`.
-3. Run the dollop utils command, and the start command for the applications you
-   are working on.
-
-## Joining the Slack
-
-Join the [Slack chat](https://dollop-hq.slack.com).
-
-## Built With
-
-- [Angular](https://angular.io) - Front-end framework
-- [Angular Material](https://material.angular.io) - Components for Angular
-- [Docker](https://www.docker.com) - The running environment
-- [GitHub](https://github.com) - The repository tool
-- [Mongo](https://www.mongodb.com) - The database
-- [Nest](https://nestjs.com) - Back-end framework
-- [Node](https://nodejs.org) - The javascript server platform
-- [NX](https://nx.dev) - The monorepo tool
-- [Redis](https://redis.io) - The cache and message broker system
-- [Typescript](https://www.typescriptlang.org) - The language
-- [webStorm](https://www.jetbrains.com/webstorm) - The IDE
-
-## Useful commands
-
-- Generate an application `nx g @nrwl/<angular|nest>:app <app-name>`
-- Generate a library `nx g @nrwl/<angular|nest>:lib <lib-name>`
-- Generate a component `nx g @nrwl/<angular|nest>:component <component-name> --project=<project-name>`
-
-## Contributing process
-
-You need to follow a specific process to contribute to the project.
-
-### Developing a new feature
-
-1. Select your issue and create a branch
-2. Pull the branch
-3. Run npm install to update the dependencies
-4. Write or update your unit tests
-5. Write your new code
-6. Run your tests until they succeed
-7. Push the new commit and open a merge request
-8. Correct any reviewing comments
-9. Merge the feature
-
-### Condition for a new feature to be validated
-
-1. 100% of test coverage
-2. 100% of documentation coverage
-3. All tests pass
-4. Audit pass
-5. Linting pass
-6. Lighthouse pass
-
-## Versioning
-
-We use the same versioning as JetBrains: <year>.<month>.<minors>.
-
-## Authors
-
-- **Amar Hazem** - _Initial work_ - [amar-hazem](https://github.com/amar-hazem)
+⭐️ From [Amar](https://github.com/amar-hazem)
