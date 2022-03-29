@@ -1,0 +1,40 @@
+section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 76px);
+  justify-content: space-evenly;
+  padding: 10px;
+  text-align: center;
+
+  @media (min-width: 600px) {
+    height: calc(100vh - 84px);
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.5em;
+  }
+
+  img {
+    border-radius: 30%;
+    max-width: 300px;
+  }
+
+  #socials {
+    justify-content: space-between;
+    display: flex;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  button {
+    font-size: 2em;
+    max-width: 300px;
+    padding: 10px;
+    width: 100%;
+  }
+}

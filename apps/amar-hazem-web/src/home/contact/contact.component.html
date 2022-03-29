@@ -1,0 +1,47 @@
+<section>
+  <h2>Contact</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="sendEmail()" novalidate>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Want to keep in touch?</mat-card-title>
+        <mat-card-subtitle>
+          My inbox is always open. If you have any question, ask away. I'll try my best to get back to you.
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="Name" type="text" />
+          <mat-error *ngIf="contactForm.controls['name'].hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Email" type="email" />
+          <mat-error *ngIf="contactForm.controls['email'].hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="contactForm.controls['email'].hasError('email')">Please provide an email</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input formControlName="subject" matInput placeholder="Subject" type="text" />
+          <mat-error *ngIf="contactForm.controls['subject'].hasError('required')">
+            Subject is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Message</mat-label>
+          <textarea formControlName="htmlContent" matInput placeholder="Message"></textarea>
+          <mat-error *ngIf="contactForm.controls['htmlContent'].hasError('required')">
+            Message is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button color="primary" [disabled]="!contactForm.valid" mat-raised-button type="submit">Send</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>
