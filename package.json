@@ -23,6 +23,7 @@
     "express": "^4.15.2",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.5",
+    "source-map-explorer": "2.5.2",
     "tslib": "2.3.1",
     "zone.js": "0.11.5"
   },
@@ -129,6 +130,7 @@
     "prettier": "prettier --write .",
     "serve": "http-server ./dist/apps/portfolio-web -b -g -c31536000",
     "serve:ssr": "node dist/apps/portfolio-web/main.311536c56152796f.js",
+    "source-map-explorer": "source-map-explorer dist/apps/**/*.js",
     "start": "nx serve --host 0.0.0.0",
     "storybook": "nx run ui:storybook",
     "stylelint": "stylelint \"**/*.scss\"",
