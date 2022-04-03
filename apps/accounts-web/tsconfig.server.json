@@ -5,13 +5,8 @@
   "compilerOptions": {
     "outDir": "./out-tsc/server",
     "target": "es2019",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
   "extends": "./tsconfig.app.json",
-  "files": [
-    "server.ts",
-    "src/main.server.ts"
-  ]
+  "files": ["server.ts", "src/main.server.ts"]
 }

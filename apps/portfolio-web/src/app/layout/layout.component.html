@@ -16,7 +16,13 @@
           <button mat-button (click)="scrollTo('contact')">Contact</button>
         </nav>
         <div *ngIf="(isHandset$ | async) === false">
-          <a aria-label="Resume" download="resume-amar-hazem.pdf" href="assets/pdf/resume-amar-hazem.pdf" id="resume" mat-flat-button>
+          <a
+            aria-label="Resume"
+            download="resume-amar-hazem.pdf"
+            href="assets/pdf/resume-amar-hazem.pdf"
+            id="resume"
+            mat-flat-button
+          >
             Resume
           </a>
         </div>
@@ -63,7 +69,12 @@
           <a aria-label="Email" href="mailto:amar.hazem@icloud.com" mat-icon-button>
             <mat-icon>mail</mat-icon>
           </a>
-          <a aria-label="Resume" download="resume-amar-hazem.pdf" href="assets/pdf/resume-amar-hazem.pdf" mat-icon-button>
+          <a
+            aria-label="Resume"
+            download="resume-amar-hazem.pdf"
+            href="assets/pdf/resume-amar-hazem.pdf"
+            mat-icon-button
+          >
             <mat-icon>contact_page</mat-icon>
           </a>
         </nav>
@@ -93,6 +104,8 @@
         <mat-list-item (click)="scrollTo('contact'); sidenav.close()">Contact</mat-list-item>
       </mat-list>
     </nav>
-    <a aria-label="Resume" download="resume-amar-hazem.pdf" href="assets/pdf/resume-amar-hazem.pdf" mat-stroked-button>Resume</a>
+    <a aria-label="Resume" download="resume-amar-hazem.pdf" href="assets/pdf/resume-amar-hazem.pdf" mat-stroked-button
+      >Resume</a
+    >
   </mat-sidenav>
 </mat-sidenav-container>

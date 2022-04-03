@@ -16,7 +16,7 @@ export class UsersController {
 
   constructor(private readonly usersService: UsersService) {}
 
-  @ApiCreatedResponse({ description: 'The user has been successfully created.', type: 'User' })
+  @ApiCreatedResponse({ description: 'The user has been successfully created.' })
   @Post()
   public create(@Body() createUserDto: CreateUserDto): Observable<User> {
     this.logger.log(`create ${createUserDto}`);

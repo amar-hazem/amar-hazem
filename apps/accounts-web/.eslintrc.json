@@ -3,10 +3,7 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "extends": [
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:@nrwl/nx/angular"
-      ],
+      "extends": ["plugin:@angular-eslint/template/process-inline-templates", "plugin:@nrwl/nx/angular"],
       "files": ["*.ts"],
       "rules": {
         "@angular-eslint/component-selector": [

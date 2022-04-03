@@ -75,9 +75,7 @@
         "polyfills": "apps/portfolio-web/src/polyfills.ts",
         "scripts": [],
         "serviceWorker": true,
-        "styles": [
-          "apps/portfolio-web/src/styles.scss"
-        ],
+        "styles": ["apps/portfolio-web/src/styles.scss"],
         "tsConfig": "apps/portfolio-web/tsconfig.app.json"
       },
       "outputs": ["{options.outputPath}"]
@@ -103,10 +101,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/portfolio-web/src/**/*.html",
-          "apps/portfolio-web/src/**/*.ts"
-        ]
+        "lintFilePatterns": ["apps/portfolio-web/src/**/*.html", "apps/portfolio-web/src/**/*.ts"]
       }
     },
     "serve": {
