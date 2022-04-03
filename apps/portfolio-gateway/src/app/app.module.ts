@@ -1,11 +1,27 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ThrottlerModule } from '@nestjs/throttler';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { EmailsModule } from '../emails/emails.module';
+import { environment } from '../environments/environment';
 
+/** Main module used for configuring the application. */
 @Module({
-  controllers: [AppController],
-  imports: [],
-  providers: [AppService],
+  imports: [
+    EmailsModule,
+    ConfigModule.forRoot({
+      ignoreEnvFile: true,
+      isGlobal: true,
+      load: [() => environment],
+    }),
+    ThrottlerModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        limit: configService.get('throttle.limit'),
+        ttl: configService.get('throttle.ttl'),
+      }),
+    }),
+  ],
 })
 export class AppModule {}
