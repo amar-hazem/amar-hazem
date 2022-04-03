@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { environment } from '../../environments/environment';
 import { Email } from './email';
 
 /** This service is used to interact with the emails endpoint. */
 @Injectable({ providedIn: 'root' })
 export class EmailService {
   /** The endpoint to query. */
-  private endpoint = `${environment.apiUrl}emails`;
+  private endpoint = 'emails';
 
   /**
    * Inject dependencies in service.
