@@ -7,12 +7,20 @@ services:
         - PORT=${ACCOUNTS_GATEWAY_PORT}
       context: .
     container_name: accounts-gateway
+    environment:
+      - ACCOUNTS_GATEWAY_HOST=${ACCOUNTS_GATEWAY_HOST}
+      - ACCOUNTS_GATEWAY_PORT=${ACCOUNTS_GATEWAY_PORT}
+      - GLOBAL_PREFIX=${GLOBAL_PREFIX}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - THROTTLE_LIMIT=${THROTTLE_LIMIT}
+      - THROTTLE_TTL=${THROTTLE_TTL}
     image: node
     ports:
       - ${ACCOUNTS_GATEWAY_PORT}:${ACCOUNTS_GATEWAY_PORT}
     volumes:
       - ./apps/accounts-gateway:/usr/src/app/apps/accounts-gateway
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   accounts-service:
     command: npm start accounts-service
     build:
@@ -21,12 +29,25 @@ services:
         - PORT=${ACCOUNTS_SERVICE_PORT}
       context: .
     container_name: accounts-service
+    environment:
+      - ACCOUNTS_DB_NAME=${ACCOUNTS_DB_NAME}
+      - ACCOUNTS_SERVICE_HOST=${ACCOUNTS_SERVICE_HOST}
+      - ACCOUNTS_SERVICE_PORT=${ACCOUNTS_SERVICE_PORT}
+      - CONTACT_RECIPIENT_EMAIL=${CONTACT_RECIPIENT_EMAIL}
+      - CONTACT_RECIPIENT_NAME=${CONTACT_RECIPIENT_NAME}
+      - MONGO_HOST=${MONGO_HOST}
+      - MONGO_PORT=${MONGO_PORT}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - SEND_IN_BLUE_API_KEY=${SEND_IN_BLUE_API_KEY}
+      - THROTTLE_LIMIT=${THROTTLE_LIMIT}
+      - THROTTLE_TTL=${THROTTLE_TTL}
     image: node
     ports:
       - ${ACCOUNTS_SERVICE_PORT}:${ACCOUNTS_SERVICE_PORT}
     volumes:
       - ./apps/accounts-service:/usr/src/app/apps/accounts-service
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   accounts-web:
     command: npm start accounts-web
     build:
@@ -40,7 +61,7 @@ services:
       - ${ACCOUNTS_WEB_PORT}:${ACCOUNTS_WEB_PORT}
     volumes:
       - ./apps/accounts-web:/usr/src/app/apps/accounts-web
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   elasticsearch:
     container_name: elasticsearch
     environment:
@@ -91,12 +112,20 @@ services:
         - PORT=${PORTFOLIO_GATEWAY_PORT}
       context: .
     container_name: portfolio-gateway
+    environment:
+      - GLOBAL_PREFIX=${GLOBAL_PREFIX}
+      - PORTFOLIO_GATEWAY_HOST=${PORTFOLIO_GATEWAY_HOST}
+      - PORTFOLIO_GATEWAY_PORT=${PORTFOLIO_GATEWAY_PORT}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - THROTTLE_LIMIT=${THROTTLE_LIMIT}
+      - THROTTLE_TTL=${THROTTLE_TTL}
     image: node
     ports:
       - ${PORTFOLIO_GATEWAY_PORT}:${PORTFOLIO_GATEWAY_PORT}
     volumes:
       - ./apps/portfolio-gateway:/usr/src/app/apps/portfolio-gateway
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   portfolio-service:
     command: npm start portfolio-service
     build:
@@ -105,12 +134,25 @@ services:
         - PORT=${PORTFOLIO_SERVICE_PORT}
       context: .
     container_name: portfolio-service
+    environment:
+      - CONTACT_RECIPIENT_EMAIL=${CONTACT_RECIPIENT_EMAIL}
+      - CONTACT_RECIPIENT_NAME=${CONTACT_RECIPIENT_NAME}
+      - MONGO_HOST=${MONGO_HOST}
+      - MONGO_PORT=${MONGO_PORT}
+      - PORTFOLIO_DB_NAME=${PORTFOLIO_DB_NAME}
+      - PORTFOLIO_SERVICE_HOST=${PORTFOLIO_SERVICE_HOST}
+      - PORTFOLIO_SERVICE_PORT=${PORTFOLIO_SERVICE_PORT}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+      - SEND_IN_BLUE_API_KEY=${SEND_IN_BLUE_API_KEY}
+      - THROTTLE_LIMIT=${THROTTLE_LIMIT}
+      - THROTTLE_TTL=${THROTTLE_TTL}
     image: node
     ports:
       - ${PORTFOLIO_SERVICE_PORT}:${PORTFOLIO_SERVICE_PORT}
     volumes:
       - ./apps/portfolio-service:/usr/src/app/apps/portfolio-service
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   portfolio-web:
     command: npm start portfolio-web
     build:
@@ -124,7 +166,7 @@ services:
       - ${PORTFOLIO_WEB_PORT}:${PORTFOLIO_WEB_PORT}
     volumes:
       - ./apps/portfolio-web:/usr/src/app/apps/portfolio-web
-      - /usr/src/app/node_modules
+      - ./node_modules:/usr/src/app/node_modules
   redis:
     command: redis-server --appendonly yes
     container_name: redis

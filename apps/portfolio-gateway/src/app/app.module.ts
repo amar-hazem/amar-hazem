@@ -8,12 +8,12 @@ import { environment } from '../environments/environment';
 /** Main module used for configuring the application. */
 @Module({
   imports: [
-    EmailsModule,
     ConfigModule.forRoot({
       ignoreEnvFile: true,
       isGlobal: true,
       load: [() => environment],
     }),
+    EmailsModule,
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

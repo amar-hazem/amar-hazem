@@ -32,7 +32,7 @@ export class HomePageComponent {
       },
       subject: formValue.subject,
     };
-    this.emailService.send(email).subscribe(() => {
+    this.emailService.sendEmail(email).subscribe(() => {
       this.matSnackBar.open('Your message has been sent.');
     });
   }

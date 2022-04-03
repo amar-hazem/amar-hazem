@@ -36,7 +36,7 @@ export class ContactComponent {
       },
       subject: formValue.subject,
     };
-    this.ahwEmailService.send(email).subscribe(() => {
+    this.ahwEmailService.sendEmail(email).subscribe(() => {
       this.matSnackBar.open('Your message has been sent.');
     });
   }

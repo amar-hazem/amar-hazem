@@ -1,8 +1,10 @@
+import { HttpModule } from '@nestjs/axios';
+import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { environment } from '../environments/environment';
 import { EmailsController } from './emails.controller';
 import { EmailsService } from './emails.service';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 
 describe('EmailsController', () => {
   let app: TestingModule;
@@ -10,7 +12,14 @@ describe('EmailsController', () => {
   beforeAll(async () => {
     app = await Test.createTestingModule({
       controllers: [EmailsController],
-      imports: [ClientsModule.register([{ name: 'PORTFOLIO_SERVICE', transport: Transport.TCP }])],
+      imports: [
+        ConfigModule.forRoot({
+          ignoreEnvFile: true,
+          isGlobal: true,
+          load: [() => environment],
+        }),
+        HttpModule,
+      ],
       providers: [EmailsService],
     }).compile();
   });
