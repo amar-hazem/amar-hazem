@@ -1,17 +1,17 @@
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { Test, TestingModule } from '@nestjs/testing';
 
-import { EmailsController } from './emails.controller';
-import { EmailsService } from './emails.service';
+import { UsersController } from './users.controller';
+import { UsersService } from './users.service';
 
-describe('EmailsController', () => {
+describe('UsersController', () => {
   let app: TestingModule;
 
   beforeAll(async () => {
     app = await Test.createTestingModule({
-      controllers: [EmailsController],
-      imports: [ClientsModule.register([{ name: 'PORTFOLIO_SERVICE', transport: Transport.TCP }])],
-      providers: [EmailsService],
+      controllers: [UsersController],
+      imports: [ClientsModule.register([{ name: 'ACCOUNTS_SERVICE', transport: Transport.TCP }])],
+      providers: [UsersService],
     }).compile();
   });
 
