@@ -10,7 +10,7 @@ import { AppModule } from './app/app.module';
 async function bootstrap(): Promise<any> {
   const application = await NestFactory.create(AppModule);
   const configService = application.get(ConfigService);
-  const globalPrefix = 'api'; // configService.get('globalPrefix');
+  const globalPrefix = configService.get('globalPrefix');
   const port = configService.get('app.port');
   application.setGlobalPrefix(globalPrefix);
   application.useGlobalPipes(new ValidationPipe());
