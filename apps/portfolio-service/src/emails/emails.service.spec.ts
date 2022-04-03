@@ -1,16 +1,23 @@
+import { HttpModule } from '@nestjs/axios';
+import { ConfigModule } from '@nestjs/config';
 import { Test } from '@nestjs/testing';
 
 import { EmailsService } from './emails.service';
-import { EmailsController } from './emails.controller';
-import { ClientsModule, Transport } from '@nestjs/microservices';
+import { environment } from '../environments/environment';
 
 describe('EmailsService', () => {
   let service: EmailsService;
 
   beforeAll(async () => {
     const app = await Test.createTestingModule({
-      controllers: [EmailsController],
-      imports: [ClientsModule.register([{ name: 'PORTFOLIO_SERVICE', transport: Transport.TCP }])],
+      imports: [
+        ConfigModule.forRoot({
+          ignoreEnvFile: true,
+          isGlobal: true,
+          load: [() => environment],
+        }),
+        HttpModule,
+      ],
       providers: [EmailsService],
     }).compile();
 

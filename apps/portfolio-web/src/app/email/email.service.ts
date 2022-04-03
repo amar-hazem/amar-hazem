@@ -21,7 +21,7 @@ export class EmailService {
    * @param {Email} email The email to send.
    * @return {Observable<string>} Confirmation message.
    */
-  public send(email: Email): Observable<string> {
+  public sendEmail(email: Email): Observable<string> {
     return this.httpClient.post<string>(this.endpoint, email);
   }
 }

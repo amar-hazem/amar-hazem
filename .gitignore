@@ -17,6 +17,7 @@ connect.lock
 coverage
 dist
 documentation
+dollop
 libpeerconnection.log
 node_modules
 npm-debug.log

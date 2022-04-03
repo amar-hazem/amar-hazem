@@ -1,12 +1,11 @@
 import { Body, Controller, Logger, Post } from '@nestjs/common';
-import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
+import { MessagePattern } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 
 import { EmailsService } from './emails.service';
 import { SendEmailDto } from './send-email.dto';
 
 /** The controller that processes the email requests. */
-@ApiTags('emails')
 @Controller('emails')
 export class EmailsController {
   /** The logger to log requests. */
@@ -23,7 +22,7 @@ export class EmailsController {
    * @param {SendEmailDto} sendEmailDto
    * @return {Observable<string>}
    */
-  @ApiCreatedResponse({ description: 'The email has been successfully sent.' })
+  @MessagePattern({ cmd: 'sendEmail' })
   @Post()
   public sendEmail(@Body() sendEmailDto: SendEmailDto): Observable<string> {
     this.logger.log(`sendEmail(${JSON.stringify(sendEmailDto)})`);

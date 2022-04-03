@@ -10,8 +10,8 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "onlyDependOnLibsWithTags": ["*"],
+                "sourceTag": "*"
               }
             ],
             "enforceBuildableLibDependency": true
@@ -20,13 +20,13 @@
       }
     },
     {
-      "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nrwl/nx/javascript"],
+      "files": ["*.js", "*.jsx"],
       "rules": {}
     },
     {
-      "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript"],
+      "files": ["*.ts", "*.tsx"],
       "rules": {}
     }
   ],

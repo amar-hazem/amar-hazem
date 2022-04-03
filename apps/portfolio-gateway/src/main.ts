@@ -10,21 +10,20 @@ import { AppModule } from './app/app.module';
 async function bootstrap(): Promise<any> {
   const application = await NestFactory.create(AppModule);
   const configService = application.get(ConfigService);
-  const globalPrefix = configService.get('globalPrefix');
+  const globalPrefix = 'api'; // configService.get('globalPrefix');
   const port = configService.get('app.port');
-  application.setGlobalPrefix(configService.get('globalPrefix'));
+  application.setGlobalPrefix(globalPrefix);
   application.useGlobalPipes(new ValidationPipe());
   application.use(compression());
   application.enableCors();
   SwaggerModule.setup(
-    configService.get('globalPrefix'),
+    globalPrefix,
     application,
     SwaggerModule.createDocument(
       application,
       new DocumentBuilder().setTitle('Portfolio API').setDescription('Portfolio API').setVersion('1.0').build()
     )
   );
-  application.setGlobalPrefix(configService.get('globalPrefix'));
   await application.listen(port, () => {
     Logger.log(`Listening at http://${configService.get('app.host')}:${port}/${globalPrefix}`);
   });

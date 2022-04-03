@@ -17,8 +17,8 @@ export class EmailsService {
    * @param {SendEmailDto} sendEmailDto
    * @return {Observable<string>}
    */
-  public send(sendEmailDto: SendEmailDto): Observable<any> {
-    this.logger.log(`send(${JSON.stringify(sendEmailDto)})`);
+  public sendEmail(sendEmailDto: SendEmailDto): Observable<any> {
+    this.logger.log(`sendEmail(${JSON.stringify(sendEmailDto)})`);
     return this.clientProxy.send<any>({ cmd: 'sendEmail' }, sendEmailDto);
   }
 }
