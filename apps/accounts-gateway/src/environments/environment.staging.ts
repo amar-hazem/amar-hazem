@@ -5,6 +5,12 @@ export const environment: any = {
     port: process.env.ACCOUNTS_GATEWAY_PORT || 3000,
   },
   globalPrefix: process.env.GLOBAL_PREFIX || 'api',
+  jwt: {
+    secret: process.env.JWT_SECRET || 'secretKey',
+    signOptions: {
+      expiresIn: '60s',
+    },
+  },
   production: false,
   redis: {
     host: process.env.REDIS_HOST || 'redis',

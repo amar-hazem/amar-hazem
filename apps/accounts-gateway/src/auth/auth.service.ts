@@ -20,8 +20,8 @@ export class AuthService {
     return this.clientProxy.send<any>({ cmd: 'login' }, user);
   }
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    this.logger.log(`validateUser ${username} ${pass}`);
-    return this.clientProxy.send<any>({ cmd: 'validateUser' }, { username, pass });
+  public validateUser(username: string, password: string): Observable<any> {
+    this.logger.log(`validateUser ${username} ${password}`);
+    return this.clientProxy.send<any>({ cmd: 'validateUser' }, { username, password });
   }
 }

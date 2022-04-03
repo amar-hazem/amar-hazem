@@ -21,8 +21,7 @@ jobs:
           cache: npm
           node-version: 16.13.1
       - env:
-          cache-name:
-            cache-node-modules
+          cache-name: cache-node-modules
         name: Cache dependencies
         uses: actions/cache@v2
         with:
@@ -33,8 +32,8 @@ jobs:
         run: npm install
       - name: Execute unit tests
         run: npx nx affected --target=test --parallel=2
-#      - name: Execute e2e tests
-#        run: npx nx affected --target=e2e --parallel=1
+      # - name: Execute e2e tests
+      #   run: npx nx affected --target=e2e --parallel=1
       - env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}

@@ -6,13 +6,7 @@
     "outDir": "../../dist/out-tsc",
     "types": []
   },
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.stories.js",
-    "**/*.stories.ts",
-    "**/*.test.ts",
-    "src/test-setup.ts"
-  ],
+  "exclude": ["**/*.spec.ts", "**/*.stories.js", "**/*.stories.ts", "**/*.test.ts", "src/test-setup.ts"],
   "extends": "./tsconfig.json",
   "include": ["**/*.ts"]
 }

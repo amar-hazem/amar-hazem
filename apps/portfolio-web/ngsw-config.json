@@ -5,23 +5,14 @@
       "installMode": "prefetch",
       "name": "app",
       "resources": {
-        "files": [
-          "/*.css",
-          "/*.js",
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest"
-        ]
+        "files": ["/*.css", "/*.js", "/favicon.ico", "/index.html", "/manifest.webmanifest"]
       }
     },
     {
       "installMode": "lazy",
       "name": "assets",
       "resources": {
-        "files": [
-          "/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)",
-          "/assets/**"
-        ]
+        "files": ["/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)", "/assets/**"]
       },
       "updateMode": "prefetch"
     }
