@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 
 /** Component used to display the overall layout for the application. */
 @Component({
-  selector: 'aha-layout',
+  selector: 'por-layout',
   styleUrls: ['./layout.component.scss'],
   templateUrl: './layout.component.html',
 })

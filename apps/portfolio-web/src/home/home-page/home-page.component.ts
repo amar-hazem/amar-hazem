@@ -7,7 +7,7 @@ import { EmailService } from '../../app/email/email.service';
 
 /** Component used to display the home page. */
 @Component({
-  selector: 'aha-home-page',
+  selector: 'por-home-page',
   styleUrls: ['./home-page.component.scss'],
   templateUrl: './home-page.component.html',
 })

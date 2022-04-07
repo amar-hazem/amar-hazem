@@ -6,14 +6,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="apple-touch-icon.png" rel="apple-touch-icon" />
     <link href="manifest.webmanifest" rel="manifest" />
     <meta charset="utf-8" />
-    <meta content="#1976d2" name="theme-color" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="#222" name="theme-color" />
+    <meta content="accounts" name="description" />
+    <meta content="initial-scale=1, width=device-width" name="viewport" />
     <title>Accounts</title>
   </head>
-  <body>
-    <acc-root></acc-root>
+  <body class="mat-typography">
+    <div id="loader">
+      <style>
+        .application-loading-container {
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          justify-content: center;
+        }
+      </style>
+      <div class="application-loading-container">
+        <h2>Loading...</h2>
+      </div>
+    </div>
+    <acc-layout></acc-layout>
     <noscript>Please enable JavaScript to continue using this application.</noscript>
   </body>
 </html>

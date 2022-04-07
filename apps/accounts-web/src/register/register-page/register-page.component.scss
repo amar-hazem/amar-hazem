@@ -1,0 +1,25 @@
+div {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+
+  form {
+    mat-card {
+      margin: 0 auto;
+      width: 500px;
+
+      mat-card-content {
+        mat-form-field {
+          width: 100%;
+        }
+      }
+
+      mat-card-footer {
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
