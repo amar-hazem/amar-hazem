@@ -1,5 +1,5 @@
 {
-  "prefix": "aha",
+  "prefix": "por",
   "projectType": "application",
   "root": "apps/portfolio-web",
   "sourceRoot": "apps/portfolio-web/src",
@@ -65,6 +65,7 @@
           "apps/portfolio-web/src/apple-touch-icon.png",
           "apps/portfolio-web/src/assets",
           "apps/portfolio-web/src/favicon.ico",
+          "apps/portfolio-web/src/loader.css",
           "apps/portfolio-web/src/manifest.webmanifest"
         ],
         "index": "apps/portfolio-web/src/index.html",

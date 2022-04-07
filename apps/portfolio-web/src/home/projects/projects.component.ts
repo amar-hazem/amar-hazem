@@ -4,7 +4,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 
 /** Component used to display the home page. */
 @Component({
-  selector: 'aha-projects',
+  selector: 'por-projects',
   styleUrls: ['./projects.component.scss'],
   templateUrl: './projects.component.html',
 })

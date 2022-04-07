@@ -1,11 +1,6 @@
 services:
   accounts-gateway:
     command: npm start accounts-gateway
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${ACCOUNTS_GATEWAY_PORT}
-      context: .
     container_name: accounts-gateway
     environment:
       - ACCOUNTS_GATEWAY_HOST=${ACCOUNTS_GATEWAY_HOST}
@@ -15,19 +10,14 @@ services:
       - REDIS_PORT=${REDIS_PORT}
       - THROTTLE_LIMIT=${THROTTLE_LIMIT}
       - THROTTLE_TTL=${THROTTLE_TTL}
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${ACCOUNTS_GATEWAY_PORT}:${ACCOUNTS_GATEWAY_PORT}
     volumes:
-      - ./apps/accounts-gateway:/usr/src/app/apps/accounts-gateway
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   accounts-service:
     command: npm start accounts-service
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${ACCOUNTS_SERVICE_PORT}
-      context: .
     container_name: accounts-service
     environment:
       - ACCOUNTS_DB_NAME=${ACCOUNTS_DB_NAME}
@@ -42,26 +32,21 @@ services:
       - SEND_IN_BLUE_API_KEY=${SEND_IN_BLUE_API_KEY}
       - THROTTLE_LIMIT=${THROTTLE_LIMIT}
       - THROTTLE_TTL=${THROTTLE_TTL}
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${ACCOUNTS_SERVICE_PORT}:${ACCOUNTS_SERVICE_PORT}
     volumes:
-      - ./apps/accounts-service:/usr/src/app/apps/accounts-service
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   accounts-web:
     command: npm start accounts-web
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${ACCOUNTS_WEB_PORT}
-      context: .
     container_name: accounts-web
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${ACCOUNTS_WEB_PORT}:${ACCOUNTS_WEB_PORT}
     volumes:
-      - ./apps/accounts-web:/usr/src/app/apps/accounts-web
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   elasticsearch:
     container_name: elasticsearch
     environment:
@@ -106,11 +91,6 @@ services:
       - mongo:/data/db
   portfolio-gateway:
     command: npm start portfolio-gateway
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${PORTFOLIO_GATEWAY_PORT}
-      context: .
     container_name: portfolio-gateway
     environment:
       - GLOBAL_PREFIX=${GLOBAL_PREFIX}
@@ -120,19 +100,14 @@ services:
       - REDIS_PORT=${REDIS_PORT}
       - THROTTLE_LIMIT=${THROTTLE_LIMIT}
       - THROTTLE_TTL=${THROTTLE_TTL}
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${PORTFOLIO_GATEWAY_PORT}:${PORTFOLIO_GATEWAY_PORT}
     volumes:
-      - ./apps/portfolio-gateway:/usr/src/app/apps/portfolio-gateway
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   portfolio-service:
     command: npm start portfolio-service
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${PORTFOLIO_SERVICE_PORT}
-      context: .
     container_name: portfolio-service
     environment:
       - CONTACT_RECIPIENT_EMAIL=${CONTACT_RECIPIENT_EMAIL}
@@ -147,26 +122,21 @@ services:
       - SEND_IN_BLUE_API_KEY=${SEND_IN_BLUE_API_KEY}
       - THROTTLE_LIMIT=${THROTTLE_LIMIT}
       - THROTTLE_TTL=${THROTTLE_TTL}
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${PORTFOLIO_SERVICE_PORT}:${PORTFOLIO_SERVICE_PORT}
     volumes:
-      - ./apps/portfolio-service:/usr/src/app/apps/portfolio-service
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   portfolio-web:
     command: npm start portfolio-web
-    build:
-      args:
-        - NODE_VERSION=${NODE_VERSION}
-        - PORT=${PORTFOLIO_WEB_PORT}
-      context: .
     container_name: portfolio-web
-    image: node
+    image: node:${NODE_VERSION}
     ports:
       - ${PORTFOLIO_WEB_PORT}:${PORTFOLIO_WEB_PORT}
     volumes:
-      - ./apps/portfolio-web:/usr/src/app/apps/portfolio-web
-      - ./node_modules:/usr/src/app/node_modules
+      - ./:/usr/src/app
+    working_dir: /usr/src/app
   redis:
     command: redis-server --appendonly yes
     container_name: redis

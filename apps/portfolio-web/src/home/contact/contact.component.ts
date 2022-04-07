@@ -7,7 +7,7 @@ import { EmailService } from '../../app/email/email.service';
 
 /** Component used to display the home page. */
 @Component({
-  selector: 'aha-contact',
+  selector: 'por-contact',
   styleUrls: ['./contact.component.scss'],
   templateUrl: './contact.component.html',
 })
@@ -20,11 +20,7 @@ export class ContactComponent {
     htmlContent: [null, Validators.required],
   });
 
-  constructor(
-    private ahwEmailService: EmailService,
-    private formBuilder: FormBuilder,
-    private matSnackBar: MatSnackBar
-  ) {}
+  constructor(private emailService: EmailService, private formBuilder: FormBuilder, private matSnackBar: MatSnackBar) {}
 
   public sendEmail(): void {
     const formValue: any = this.contactForm.getRawValue();
@@ -36,7 +32,7 @@ export class ContactComponent {
       },
       subject: formValue.subject,
     };
-    this.ahwEmailService.sendEmail(email).subscribe(() => {
+    this.emailService.sendEmail(email).subscribe(() => {
       this.matSnackBar.open('Your message has been sent.');
     });
   }

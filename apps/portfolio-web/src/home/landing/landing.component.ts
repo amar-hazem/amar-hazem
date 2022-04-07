@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 
 /** Component used to display the home page. */
 @Component({
-  selector: 'aha-landing',
+  selector: 'por-landing',
   styleUrls: ['./landing.component.scss'],
   templateUrl: './landing.component.html',
 })

@@ -1,0 +1,6 @@
+<h2 mat-dialog-title>Delete profile</h2>
+<mat-dialog-content> Are your sure you want to delete your profile? This action is irreversible. </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="true" value="Cancel">Cancel</button>
+  <button (click)="delete()" color="warn" mat-raised-button [mat-dialog-close]="true" value="Delete">Delete</button>
+</mat-dialog-actions>

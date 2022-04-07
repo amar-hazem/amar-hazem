@@ -1,0 +1,60 @@
+<header>
+  <mat-toolbar color="primary">
+    <a mat-button routerLink="">
+      <h1>
+        Accounts
+      </h1>
+    </a>
+  </mat-toolbar>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  <mat-toolbar>
+    <a mat-button routerLink="">
+      <h4>
+        ©
+        <span *ngIf="isHandset$ | async">AH</span>
+        <span *ngIf="(isHandset$ | async) === false">Amar Hazem</span>
+      </h4>
+    </a>
+    <div></div>
+    <nav aria-label="Socials Menu">
+      <a
+        aria-label="LinkedIn"
+        color="primary"
+        href="https://www.linkedin.com/in/amar-hazem"
+        mat-icon-button
+        rel="noopener"
+        target="_blank"
+      >
+        <mat-icon svgIcon="linkedin"></mat-icon>
+      </a>
+      <a
+        aria-label="GitHub"
+        color="primary"
+        href="https://github.com/amar-hazem"
+        mat-icon-button
+        rel="noopener"
+        target="_blank"
+      >
+        <mat-icon svgIcon="github"></mat-icon>
+      </a>
+      <a aria-label="Email" href="mailto:amar.hazem@icloud.com" mat-icon-button>
+        <mat-icon>mail</mat-icon>
+      </a>
+      <a
+        aria-label="Resume"
+        download="resume-amar-hazem.pdf"
+        href="assets/pdf/resume-amar-hazem.pdf"
+        mat-icon-button
+      >
+        <mat-icon>contact_page</mat-icon>
+      </a>
+    </nav>
+    <button mat-button (click)="scrollTo('top')">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+  </mat-toolbar>
+</footer>

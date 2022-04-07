@@ -9,7 +9,7 @@
         "@angular-eslint/component-selector": [
           "error",
           {
-            "prefix": "aha",
+            "prefix": "por",
             "style": "kebab-case",
             "type": "element"
           }
@@ -17,7 +17,7 @@
         "@angular-eslint/directive-selector": [
           "error",
           {
-            "prefix": "aha",
+            "prefix": "por",
             "style": "camelCase",
             "type": "attribute"
           }
