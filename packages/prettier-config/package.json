@@ -9,16 +9,22 @@
     "email": "amar.hazem@icloud.com"
   },
   "contributors": [],
-  "description": "@ah/typescript-config",
-  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/packages/typescript-config",
+  "description": "@ah/prettier-config",
+  "devDependencies": {
+    "prettier": "3.3.3"
+  },
+  "exports": "./index.js",
+  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/packages/prettier-config",
   "keywords": [
-    "@ah/typescript-config"
+    "@ah/prettier-config"
   ],
   "license": "MIT",
-  "name": "@ah/typescript-config",
+  "name": "@ah/prettier-config",
+  "prettier": "@ah/prettier-config",
   "private": true,
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "version": "1.0.0"
 }

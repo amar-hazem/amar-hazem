@@ -22,7 +22,9 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
-export default function RootLayout({ children }: Readonly<RootLayoutProps>): JSX.Element {
+export default function RootLayout({
+  children,
+}: Readonly<RootLayoutProps>): JSX.Element {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
