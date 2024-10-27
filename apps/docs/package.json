@@ -1,21 +1,39 @@
 {
+  "author": {
+    "email": "amar.hazem@icloud.com",
+    "name": "Amar Hazem",
+    "url": "http://amar-hazem.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/amar-hazem/amar-hazem/issues",
+    "email": "amar.hazem@icloud.com"
+  },
+  "contributors": [],
   "dependencies": {
     "@ah/ui": "workspace:*",
     "next": "15.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
+  "description": "docs",
   "devDependencies": {
     "@ah/eslint-config": "workspace:*",
+    "@ah/prettier-config": "workspace:*",
     "@ah/typescript-config": "workspace:*",
-    "@types/node": "20.18.0",
+    "@types/node": "20.17.1",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.2.1",
     "eslint": "9.13.0",
     "eslint-config-next": "15.0.1",
     "typescript": "5.6.3"
   },
+  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/apps/docs",
+  "keywords": [
+    "docs"
+  ],
+  "license": "MIT",
   "name": "docs",
+  "prettier": "@ah/prettier-config",
   "private": true,
   "scripts": {
     "build": "next build",

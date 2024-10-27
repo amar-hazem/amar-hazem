@@ -36,26 +36,29 @@ importers:
       '@ah/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@ah/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
       '@ah/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
-        specifier: '22'
-        version: 22.8.1
+        specifier: 20.17.1
+        version: 20.17.1
       '@types/react':
-        specifier: '18'
-        version: 18.2.61
+        specifier: 18.3.12
+        version: 18.3.12
       '@types/react-dom':
-        specifier: '18'
-        version: 18.2.19
+        specifier: 18.2.1
+        version: 18.2.1
       eslint:
-        specifier: '9'
+        specifier: 9.13.0
         version: 9.13.0
       eslint-config-next:
         specifier: 15.0.1
         version: 15.0.1(eslint@9.13.0)(typescript@5.6.3)
       typescript:
-        specifier: '5'
+        specifier: 5.6.3
         version: 5.6.3
 
   apps/web:
@@ -76,26 +79,29 @@ importers:
       '@ah/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
+      '@ah/prettier-config':
+        specifier: workspace:*
+        version: link:../../packages/prettier-config
       '@ah/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
-        specifier: '22'
-        version: 22.8.1
+        specifier: 20.17.1
+        version: 20.17.1
       '@types/react':
-        specifier: '18'
-        version: 18.2.61
+        specifier: 18.3.12
+        version: 18.3.12
       '@types/react-dom':
-        specifier: '18'
-        version: 18.2.19
+        specifier: 18.2.1
+        version: 18.2.1
       eslint:
-        specifier: '9'
+        specifier: 9.13.0
         version: 9.13.0
       eslint-config-next:
         specifier: 15.0.1
         version: 15.0.1(eslint@9.13.0)(typescript@5.6.3)
       typescript:
-        specifier: '5'
+        specifier: 5.6.3
         version: 5.6.3
 
   packages/eslint-config:
@@ -122,6 +128,12 @@ importers:
         specifier: 5.6.3
         version: 5.6.3
 
+  packages/prettier-config:
+    devDependencies:
+      prettier:
+        specifier: 3.3.3
+        version: 3.3.3
+
   packages/typescript-config: {}
 
   packages/ui:
@@ -138,13 +150,13 @@ importers:
         version: link:../typescript-config
       '@turbo/gen':
         specifier: 2.2.3
-        version: 2.2.3(@types/node@22.8.1)(typescript@5.6.3)
+        version: 2.2.3(@types/node@20.17.1)(typescript@5.6.3)
       '@types/eslint':
         specifier: 9.6.1
         version: 9.6.1
       '@types/node':
-        specifier: 22.8.1
-        version: 22.8.1
+        specifier: 20.17.1
+        version: 20.17.1
       '@types/react':
         specifier: 18.3.12
         version: 18.3.12
@@ -583,8 +595,8 @@ packages:
   '@types/minimatch@5.1.2':
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
 
-  '@types/node@22.8.1':
-    resolution: {integrity: sha512-k6Gi8Yyo8EtrNtkHXutUu2corfDf9su95VYVP10aGYMMROM6SAItZi0w1XszA6RtWTHSVp5OeFof37w0IEqCQg==}
+  '@types/node@20.17.1':
+    resolution: {integrity: sha512-j2VlPv1NnwPJbaCNv69FO/1z4lId0QmGvpT41YxitRtWlg96g/j8qcv2RKsLKe2F6OJgyXhupN1Xo17b2m139Q==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -592,20 +604,14 @@ packages:
   '@types/prop-types@15.7.13':
     resolution: {integrity: sha512-hCZTSvwbzWGvhqxp/RqVqwU999pBf2vp7hzIjiYOsl8wqOmUxkQ6ddw1cV3l8811+kdUFus/q4d1Y3E3SyEifA==}
 
-  '@types/react-dom@18.2.19':
-    resolution: {integrity: sha512-aZvQL6uUbIJpjZk4U8JZGbau9KDeAwMfmhyWorxgBkqDIEf6ROjRozcmPIicqsUwPUjbkDfHKgGee1Lq65APcA==}
+  '@types/react-dom@18.2.1':
+    resolution: {integrity: sha512-8QZEV9+Kwy7tXFmjJrp3XUKQSs9LTnE0KnoUb0YCguWBiNW0Yfb2iBMYZ08WPg35IR6P3Z0s00B15SwZnO26+w==}
 
   '@types/react-dom@18.3.1':
     resolution: {integrity: sha512-qW1Mfv8taImTthu4KoXgDfLuk4bydU6Q/TkADnDWWHwi4NX4BR+LWfTp2sVmTqRrsHvyDDTelgelxJ+SsejKKQ==}
 
-  '@types/react@18.2.61':
-    resolution: {integrity: sha512-NURTN0qNnJa7O/k4XUkEW2yfygA+NxS0V5h1+kp9jPwhzZy95q3ADoGMP0+JypMhrZBTTgjKAUlTctde1zzeQA==}
-
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
-
-  '@types/scheduler@0.23.0':
-    resolution: {integrity: sha512-YIoDCTH3Af6XM5VuwGG/QL/CJqga1Zm3NkU3HZ4ZHK2fRMPYP1VczsTUqtsf43PH/iJNVlPHAo2oWX7BSdB2Hw==}
 
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
@@ -3318,7 +3324,7 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@turbo/gen@2.2.3(@types/node@22.8.1)(typescript@5.6.3)':
+  '@turbo/gen@2.2.3(@types/node@20.17.1)(typescript@5.6.3)':
     dependencies:
       '@turbo/workspaces': 2.2.3
       commander: 10.0.1
@@ -3328,7 +3334,7 @@ snapshots:
       node-plop: 0.26.3
       picocolors: 1.0.1
       proxy-agent: 6.4.0
-      ts-node: 10.9.2(@types/node@22.8.1)(typescript@5.6.3)
+      ts-node: 10.9.2(@types/node@20.17.1)(typescript@5.6.3)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.1
     transitivePeerDependencies:
@@ -3363,7 +3369,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.8.1
+      '@types/node': 20.17.1
 
   '@types/inquirer@6.5.0':
     dependencies:
@@ -3376,7 +3382,7 @@ snapshots:
 
   '@types/minimatch@5.1.2': {}
 
-  '@types/node@22.8.1':
+  '@types/node@20.17.1':
     dependencies:
       undici-types: 6.19.8
 
@@ -3384,32 +3390,24 @@ snapshots:
 
   '@types/prop-types@15.7.13': {}
 
-  '@types/react-dom@18.2.19':
+  '@types/react-dom@18.2.1':
     dependencies:
-      '@types/react': 18.2.61
+      '@types/react': 18.3.12
 
   '@types/react-dom@18.3.1':
     dependencies:
       '@types/react': 18.3.12
-
-  '@types/react@18.2.61':
-    dependencies:
-      '@types/prop-types': 15.7.13
-      '@types/scheduler': 0.23.0
-      csstype: 3.1.3
 
   '@types/react@18.3.12':
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
 
-  '@types/scheduler@0.23.0': {}
-
   '@types/semver@7.5.8': {}
 
   '@types/through@0.0.33':
     dependencies:
-      '@types/node': 22.8.1
+      '@types/node': 20.17.1
 
   '@types/tinycolor2@1.4.6': {}
 
@@ -6018,14 +6016,14 @@ snapshots:
     dependencies:
       typescript: 5.6.3
 
-  ts-node@10.9.2(@types/node@22.8.1)(typescript@5.6.3):
+  ts-node@10.9.2(@types/node@20.17.1)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 22.8.1
+      '@types/node': 20.17.1
       acorn: 8.12.1
       acorn-walk: 8.3.4
       arg: 4.1.3

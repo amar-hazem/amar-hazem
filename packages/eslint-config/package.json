@@ -1,4 +1,15 @@
 {
+  "author": {
+    "email": "amar.hazem@icloud.com",
+    "name": "Amar Hazem",
+    "url": "http://amar-hazem.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/amar-hazem/amar-hazem/issues",
+    "email": "amar.hazem@icloud.com"
+  },
+  "contributors": [],
+  "description": "@ah/eslint-config",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
@@ -13,6 +24,11 @@
     "next.js",
     "react-internal.js"
   ],
+  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/packages/eslint-config",
+  "keywords": [
+    "@ah/eslint-config"
+  ],
+  "license": "MIT",
   "name": "@ah/eslint-config",
   "private": true,
   "version": "1.0.0"

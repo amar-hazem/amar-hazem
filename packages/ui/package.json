@@ -1,13 +1,24 @@
 {
+  "author": {
+    "email": "amar.hazem@icloud.com",
+    "name": "Amar Hazem",
+    "url": "http://amar-hazem.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/amar-hazem/amar-hazem/issues",
+    "email": "amar.hazem@icloud.com"
+  },
+  "contributors": [],
   "dependencies": {
     "react": "18.3.1"
   },
+  "description": "@ah/ui",
   "devDependencies": {
     "@ah/eslint-config": "workspace:*",
     "@ah/typescript-config": "workspace:*",
     "@types/eslint": "9.6.1",
     "@turbo/gen": "2.2.3",
-    "@types/node": "22.8.1",
+    "@types/node": "20.17.1",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "eslint": "9.13.0",
@@ -18,6 +29,11 @@
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx"
   },
+  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/packages/ui",
+  "keywords": [
+    "@ah/ui"
+  ],
+  "license": "MIT",
   "name": "@ah/ui",
   "private": true,
   "scripts": {
