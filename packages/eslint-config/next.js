@@ -4,20 +4,26 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
+  env: {
+    browser: true,
+    node: true,
+  },
   extends: [
+    require.resolve("@vercel/style-guide/eslint/next"),
     "eslint:recommended",
     "prettier",
-    require.resolve("@vercel/style-guide/eslint/next"),
     "turbo",
   ],
   globals: {
-    React: true,
     JSX: true,
+    React: true,
   },
-  env: {
-    node: true,
-    browser: true,
-  },
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+  ],
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
   plugins: ["only-warn"],
   settings: {
     "import/resolver": {
@@ -26,10 +32,4 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
-  ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
 };

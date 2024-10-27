@@ -8,7 +8,11 @@ interface ButtonProps {
   appName: string;
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
+export function Button({
+  children,
+  className,
+  appName,
+}: Readonly<ButtonProps>): JSX.Element {
   return (
     <button
       className={className}
@@ -17,4 +21,4 @@ export const Button = ({ children, className, appName }: ButtonProps) => {
       {children}
     </button>
   );
-};
+}
