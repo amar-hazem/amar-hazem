@@ -1,0 +1,19 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  sentry:
+    container_name: sentry
+    env_file:
+      - .env
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test: ["CMD-SHELL", "curl -f http://localhost:8080 || exit 1"]
+      timeout: 10s
+    image: sentry:${SENTRY_VERSION}
+    networks:
+      - ah_network
+    ports:
+      - ${SENTRY_PORT}:8080
+    restart: unless-stopped

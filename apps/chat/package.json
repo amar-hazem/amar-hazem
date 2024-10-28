@@ -1,0 +1,45 @@
+{
+  "author": {
+    "email": "amar.hazem@icloud.com",
+    "name": "Amar Hazem",
+    "url": "http://amar-hazem.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/amar-hazem/amar-hazem/issues",
+    "email": "amar.hazem@icloud.com"
+  },
+  "contributors": [],
+  "dependencies": {
+    "@ah/ui": "workspace:*",
+    "next": "15.0.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "description": "chat",
+  "devDependencies": {
+    "@ah/eslint-config": "workspace:*",
+    "@ah/prettier-config": "workspace:*",
+    "@ah/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "eslint": "9.16.0",
+    "eslint-config-next": "15.0.4",
+    "typescript": "5.7.2"
+  },
+  "homepage": "https://github.com/amar-hazem/amar-hazem/tree/main/apps/chat",
+  "keywords": [
+    "chat"
+  ],
+  "license": "MIT",
+  "name": "chat",
+  "prettier": "@ah/prettier-config",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --turbopack",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "version": "1.0.0"
+}

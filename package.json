@@ -1,19 +1,39 @@
 {
+  "author": {
+    "email": "amar.hazem@icloud.com",
+    "name": "Amar Hazem",
+    "url": "http://amar-hazem.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/amar-hazem/amar-hazem/issues",
+    "email": "amar.hazem@icloud.com"
+  },
+  "contributors": [],
+  "dependencies": {},
+  "description": "account",
   "devDependencies": {
-    "prettier": "3.3.3",
-    "turbo": "2.2.3",
-    "typescript": "5.6.3"
+    "prettier": "3.4.2",
+    "turbo": "2.3.3",
+    "typescript": "5.7.2"
   },
   "engines": {
     "node": "20.18.0"
   },
+  "homepage": "https://github.com/amar-hazem/amar-hazem",
+  "keywords": [
+    "amar-hazem"
+  ],
+  "license": "MIT",
   "name": "amar-hazem",
-  "packageManager": "pnpm@9.12.2",
+  "packageManager": "pnpm@9.15.0",
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "compose:down": "docker compose down",
+    "compose:up": "docker compose up -d",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint"
-  }
+  },
+  "version": "1.0.0"
 }

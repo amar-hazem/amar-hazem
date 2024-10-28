@@ -1,0 +1,20 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  ngrok:
+    command: "http 80"
+    container_name: ngrok
+    env_file:
+      - .env
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test: ["CMD-SHELL", "curl -f http://localhost:4040 || exit 1"]
+      timeout: 10s
+    image: ngrok:${NGROK_VERSION}
+    networks:
+      - ah_network
+    ports:
+      - ${NGROK_PORT}:4040
+    restart: unless-stopped

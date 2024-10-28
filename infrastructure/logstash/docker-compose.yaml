@@ -1,0 +1,24 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  logstash:
+    container_name: logstash
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    env_file:
+      - .env
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test: ["CMD-SHELL", "curl -f http://localhost:5044 || exit 1"]
+      timeout: 10s
+    image: logstash:${LOGSTASH_VERSION}
+    networks:
+      - ah_network
+    ports:
+      - ${LOGSTASH_PORT}:5044
+    restart: unless-stopped
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf

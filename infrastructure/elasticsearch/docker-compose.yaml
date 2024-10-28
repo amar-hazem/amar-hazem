@@ -1,0 +1,39 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 2g
+        reservations:
+          cpus: "0.5"
+          memory: 1g
+    env_file:
+      - .env
+    environment:
+      - discovery.type=${ELASTICSEARCH_DISCOVERY_TYPE}
+    expose:
+      - ${ELASTICSEARCH_HTTP_PORT}
+      - ${ELASTICSEARCH_TRANSPORT_PORT}
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test:
+        [
+          "CMD-SHELL",
+          "curl -f http://localhost:9200/_cluster/health?wait_for_status=yellow || exit 1",
+        ]
+      timeout: 10s
+    image: elasticsearch:${ELASTICSEARCH_VERSION}
+    networks:
+      - ah_network
+    restart: unless-stopped
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+volumes:
+  elasticsearch_data:
+    driver: local

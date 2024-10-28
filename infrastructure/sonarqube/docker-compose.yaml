@@ -1,0 +1,19 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  sonarqube:
+    container_name: sonarqube
+    env_file:
+      - .env
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test: ["CMD-SHELL", "curl -f http://localhost:9000 || exit 1"]
+      timeout: 10s
+    image: sonarqube:${SONARQUBE_VERSION}
+    networks:
+      - ah_network
+    ports:
+      - ${SONARQUBE_PORT}:9000
+    restart: unless-stopped

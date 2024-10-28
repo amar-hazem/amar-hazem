@@ -1,0 +1,22 @@
+networks:
+  ah_network:
+    driver: bridge
+services:
+  kibana:
+    container_name: kibana
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    env_file:
+      - .env
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test: ["CMD-SHELL", "curl -f http://localhost:5601 || exit 1"] # Port 5601 est le port par défaut de Kibana
+      timeout: 10s
+    image: kibana:${KIBANA_VERSION}
+    networks:
+      - ah_network
+    ports:
+      - ${KIBANA_PORT}:5601
+    restart: unless-stopped
