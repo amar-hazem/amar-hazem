@@ -12,6 +12,8 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "compose:down": "docker compose down",
+    "compose:up": "docker compose up -d",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo lint"
